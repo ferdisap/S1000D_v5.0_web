@@ -1,0 +1,38 @@
+<IfModule mod_headers.c>
+  <FilesMatch ".(js|css|xml|png|gz|html|woff2|slim.min.js)$">
+    Header set "Content-Type" "text/plain"
+  </FilesMatch>
+</IfModule>
+
+<If "%{REQUEST_FILENAME} =~ m#\.xsd_graphic.xml$#>
+  Header set "Content-Type" "text/plain"
+</If>
+<!-- RewriteRule ^ xsd_graphic.php [L] -->
+
+<!-- <IfModule mod_rewrite.c>
+  <IfModule mod_negotiation.c>
+      Options -MultiViews -Indexes
+  </IfModule>
+
+  RewriteEngine On
+
+  # Handle Authorization Header
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+  # Redirect Trailing Slashes If Not A Folder...
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} (.+)/$
+  RewriteRule ^ %1 [L,R=301]
+
+  # Send Requests To Front Controller...
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.php [L]
+</IfModule> -->
+
+
+<!-- 
+<If "%{REQUEST_FILENAME} =~ m#\.xslt$# && %{HTTP:Accept} =~ m#^text\/css#">
+    Header set "Content-Type" "text/css"
+</If> -->

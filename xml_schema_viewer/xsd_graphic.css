@@ -1,0 +1,115 @@
+
+form {
+    font-family: Calibri,Arial,sans-serif;
+    font-weight: normal; font-size: 12pt;
+}
+
+.composition_table {
+    border: 0;
+    border-style: solid;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+
+.attribute_table {
+    border: 0;
+    border-style: solid;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 5pt;
+    margin-bottom: 5pt;
+    padding: 0px;
+    vertical-align: top;
+    font-family: Calibri,Arial,sans-serif;
+    font-weight: normal; font-size: 12px;
+    border-right: 1pt solid black;
+    border-left: 1pt solid black;
+    border-top: 1pt solid black;
+    border-bottom: 1pt solid black;
+    padding-right: 5pt;
+    padding-left: 5pt;
+    padding-top: 3pt;
+    padding-bottom: 3pt
+}
+
+.attribute_left {
+    padding-left: 11px;
+    padding-bottom: 29px
+}
+
+.attribute_body {
+    vertical-align: top;
+    background-repeat: repeat-x;
+    font-family: Calibri,Arial,sans-serif;
+    font-weight: normal; font-size: 12px;
+    padding-right: 3px;
+    padding-left: 5px;
+    padding-top: 7px;
+    padding-bottom: 9px
+}
+
+.attribute_right {
+    padding-left: 10px;
+    padding-bottom: 29px
+}
+
+.element_left {
+    padding-left: 11px;
+    padding-bottom: 47px
+}
+
+.element_body {
+    vertical-align: top;
+    background-repeat: repeat-x;
+    font-family: Calibri,Arial,sans-serif;
+    font-weight: normal; font-size: 12px;
+    padding-right: 3px;
+    padding-left: 5px;
+    padding-top: 16px;
+    padding-bottom: 18px
+}
+
+.element_right_large {
+    padding-left: 17px;
+    padding-bottom: 47px
+}
+
+.element_right_small {
+    padding-left: 10px;
+    padding-bottom: 47px
+}
+
+.branch_top {
+    vertical-align: top;
+    font-size: 2px;
+    padding-top: 14px;
+    padding-left: 14px;
+    border-bottom: 1pt solid black;
+}
+
+.branch_middle_tee {
+    vertical-align: top;
+    font-size: 2px;
+    padding-top: 14px;
+    padding-left: 14px;
+    border-left: 1pt solid black;
+    border-bottom: 1pt solid black;
+}
+
+.branch_middle_continue {
+    vertical-align: top;
+    font-size: 2px;
+    padding-top: 14px;
+    padding-left: 14px;
+    border-left: 1pt solid black;
+    padding-bottom : 1px;
+}
+
+.branch_bottom {
+    vertical-align: top;
+    font-size: 2px;
+    padding-top: 14px;
+    padding-left: 14px;
+    padding-bottom : 1px;
+}

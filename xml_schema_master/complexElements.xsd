@@ -1,0 +1,1392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:annotation id="version">
+		<xs:documentation>Issue number: 5.0</xs:documentation>
+		<xs:documentation>Issue date: 2019-06-28</xs:documentation>
+		<xs:documentation>Steering Committee Trigger: SC 35.01</xs:documentation>
+		<xs:documentation>URL: http://www.s1000d.org/S1000D_5-0/xml_schema_master/complexElements.xsd</xs:documentation>
+		<xs:documentation>Remarks: none</xs:documentation>
+	</xs:annotation>
+	<xs:annotation id="copyright">
+		<xs:documentation>Copyright:
+		Copyright (C) 1989, 2004, 2005, 2007, 2008, 2009, 2011, 2012, 2016, 2017, 2018, 2019 by each of the following organizations:
+		1.  AeroSpace and Defence Industries Associations of Europe - ASD.
+		2.  Ministries of Defence of the member countries of ASD.
+	
+		Limitations of Liability:
+
+		1.  This material is provided "As Is" and neither ASD nor any person who has contributed to the creation, revision or maintenance of the material makes any representations or warranties, express or implied, including but not limited to, warranties of merchantability or fitness for any particular purpose.
+		2.  Neither ASD nor any person who has contributed to the creation, revision or maintenance of this material shall be liable for any direct, indirect, special or consequential damages or any other liability arising from any use of this material.
+		3.  Revisions to this document may occur after its issuance.  The user is responsible for determining if revisions to the material contained in this document have occurred and are applicable. 
+		</xs:documentation>
+	</xs:annotation>
+	<xs:annotation id="changes_4.2-01">
+		<xs:documentation source="2011-009DE R3a">Information name variant; 2017-10-26 JS URL: https://specring.com/specs/S1000D/SPEC/proposals/view/2011-009DE</xs:documentation>
+		<xs:documentation source="2015-012EPWG R1">Delete Elements / Attributes declared but not used; 2017-10-11 JS URL: https://specring.com/specs/S1000D/SPEC/proposals/view/2015-012EPWG</xs:documentation>
+	</xs:annotation>
+	<xs:annotation id="changes_4.2-02">
+		<xs:documentation source="2017-017DE R5">Remove subjectVariantSegment from IPD; 2018-05-25 JS URL https://specring.com/specs/S1000D/SPEC/proposals/view/DE-2017-0016</xs:documentation>
+		<xs:documentation source="2014-015AA R1">scoEntryItem Possible Error (Lacking ability to Reference a Content Package); 2018-07-11 JS URL https://specring.com/specs/S1000D/SPEC/proposals/view/AA-2014-0022</xs:documentation>
+	</xs:annotation>
+	<xs:annotation id="changes_4.2-03">
+		<xs:documentation source="2015-016AA R4">Identification of Regulatory Information; 2018-11-26 JS URL: https://specring.com/specs/S1000D/SPEC/proposals/view/AA-2015-0012</xs:documentation>
+		<xs:documentation source="2017-029BRWG R7">brDoc gaps; 2019-02-15 JS URL: https://specring.com/specs/S1000D/SPEC/proposals/view/BRWG-2017-0029</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="complexTypes.xsd"/>
+	<xs:element name="accessFrom" type="accessFromElemType"/>
+	<xs:element name="accessPoint" type="accessPointElemType"/>
+	<xs:element name="accessPointAlts" type="accessPointAltsElemType"/>
+	<xs:element name="accessPointIdent" type="accessPointIdentElemType">
+		<xs:unique name="oneAccessPointSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@accessPointNumber"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="accessPointRef" type="accessPointRefElemType"/>
+	<xs:element name="accessPointRefGroup" type="accessPointRefGroupElemType"/>
+	<xs:element name="accessPointRepository" type="accessPointRepositoryElemType"/>
+	<xs:element name="accessPointSpec" type="accessPointSpecElemType"/>
+	<xs:element name="accessPointType" type="accessPointTypeElemType"/>
+	<xs:element name="accessTo" type="accessToElemType"/>
+	<xs:element name="accessory" type="accessoryElemType"/>
+	<xs:element name="accessoryGroup" type="accessoryGroupElemType"/>
+	<xs:element name="acronym" type="acronymElemType"/>
+	<xs:element name="acronymDefinition" type="acronymDefinitionElemType"/>
+	<xs:element name="acronymTerm" type="acronymTermElemType"/>
+	<xs:element name="action" type="actionElemType"/>
+	<xs:element name="actionAlts" type="actionAltsElemType"/>
+	<xs:element name="address" type="addressElemType"/>
+	<xs:element name="altIdent" type="altIdentElemType"/>
+	<xs:element name="altIdentGroup" type="altIdentGroupElemType"/>
+	<xs:element name="alteredFromPart" type="alteredFromPartElemType"/>
+	<xs:element name="alteredFromPartDescr" type="alteredFromPartDescrElemType"/>
+	<xs:element name="amperage" type="amperageElemType"/>
+	<xs:element name="answer" type="answerElemType"/>
+	<xs:element name="applic" type="applicElemType"/>
+	<xs:element name="applicCrossRefTable" type="applicCrossRefTableElemType"/>
+	<xs:element name="applicCrossRefTableCatalog" type="applicCrossRefTableCatalogElemType"/>
+	<xs:element name="applicCrossRefTableRef" type="applicCrossRefTableRefElemType"/>
+	<xs:element name="applicIdent" type="applicIdentElemType"/>
+	<xs:element name="applicRef" type="applicRefElemType"/>
+	<xs:element name="applicRefIdent" type="applicRefIdentElemType"/>
+	<xs:element name="applicRepository" type="applicRepositoryElemType"/>
+	<xs:element name="applicSpec" type="applicSpecElemType"/>
+	<xs:element name="applicSpecIdent" type="applicSpecIdentElemType">
+		<xs:unique name="oneApplicSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@applicIdentValue"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="applicabilitySegment" type="applicabilitySegmentElemType"/>
+	<xs:element name="assert" type="assertElemType"/>
+	<xs:element name="assertion" type="assertionElemType"/>
+	<xs:element name="assign" type="assignElemType"/>
+	<xs:element name="assocWarningMalfunction" type="assocWarningMalfunctionElemType"/>
+	<xs:element name="assocWarningMalfunctionAlts" type="assocWarningMalfunctionAltsElemType"/>
+	<xs:element name="associate" type="associateElemType"/>
+	<xs:element name="assy" type="assyElemType"/>
+	<xs:element name="assyInstruction" type="assyInstructionElemType"/>
+	<xs:element name="attachStoreShipPart" type="attachStoreShipPartElemType"/>
+	<xs:element name="attachmentRef" type="attachmentRefElemType"/>
+	<xs:element name="attentionListItemPara" type="attentionListItemParaElemType"/>
+	<xs:element name="attentionRandomList" type="attentionRandomListElemType"/>
+	<xs:element name="attentionRandomListItem" type="attentionRandomListItemElemType"/>
+	<xs:element name="attentionSequentialList" type="attentionSequentialListElemType"/>
+	<xs:element name="attentionSequentialListItem" type="attentionSequentialListItemElemType"/>
+	<xs:element name="attenuation" type="attenuationElemType"/>
+	<xs:element name="authorityExceptions" type="authorityExceptionsElemType"/>
+	<xs:element name="authorityInfoAndTp" type="authorityInfoAndTpElemType"/>
+	<xs:element name="authorizationStatus" type="authorizationStatusElemType"/>
+	<xs:element name="barCode" type="barCodeElemType"/>
+	<xs:element name="barCodeCode" type="barCodeCodeElemType"/>
+	<xs:element name="barCodeSymbol" type="barCodeSymbolElemType"/>
+	<xs:element name="basicCorrelatedFaults" type="basicCorrelatedFaultsElemType"/>
+	<xs:element name="behavior" type="behaviorElemType"/>
+	<xs:element name="bitMessage" type="assocWarningMalfunctionElemType"/>
+	<xs:element name="bitMessageAlts" type="bitMessageAltsElemType"/>
+	<xs:element name="booleanFunction" type="booleanFunctionElemType"/>
+	<xs:element name="booleanOperator" type="booleanOperatorElemType"/>
+	<xs:element name="booleanValue" type="booleanValueElemType"/>
+	<xs:element name="boundary" type="boundaryElemType"/>
+	<xs:element name="boundaryFrom" type="boundaryFromElemType"/>
+	<xs:element name="boundaryTo" type="boundaryToElemType"/>
+	<xs:element name="brDecisionRef" type="brDecisionRefElemType"/>
+	<xs:element name="brex" type="brexElemType"/>
+	<xs:element name="brexDmRef" type="brexDmRefElemType"/>
+	<xs:element name="businessUnit" type="businessUnitElemType"/>
+	<xs:element name="businessUnitAddress" type="addressElemType"/>
+	<xs:element name="buyerFurnishedEquipFlag" type="buyerFurnishedEquipFlagElemType"/>
+	<xs:element name="calibrationMarker" type="calibrationMarkerElemType"/>
+	<xs:element name="caption" type="captionElemType"/>
+	<xs:element name="captionBody" type="captionBodyElemType"/>
+	<xs:element name="captionEntry" type="captionEntryElemType"/>
+	<xs:element name="captionGroup" type="captionGroupElemType"/>
+	<xs:element name="captionLine" type="captionLineElemType"/>
+	<xs:element name="captionRow" type="captionRowElemType"/>
+	<xs:element name="captionText" type="captionTextElemType"/>
+	<xs:element name="case" type="caseElemType"/>
+	<xs:element name="caseCond" type="caseCondElemType"/>
+	<xs:element name="catalogSeqNumber" type="catalogSeqNumberElemType"/>
+	<xs:element name="catalogSeqNumberRef" type="catalogSeqNumberRefElemType"/>
+	<xs:element name="categoryOneContainerLocation" type="categoryOneContainerLocationElemType"/>
+	<xs:element name="caution" type="cautionElemType"/>
+	<xs:element name="cautionIdent" type="cautionIdentElemType">
+		<xs:unique name="oneCautionSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@cautionIdentNumber"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="cautionRef" type="cautionRefElemType"/>
+	<xs:element name="cautionRepository" type="cautionRepositoryElemType"/>
+	<xs:element name="cautionSpec" type="cautionSpecElemType"/>
+	<xs:element name="challenge" type="challengeElemType"/>
+	<xs:element name="challengeAndResponse" type="challengeAndResponseElemType"/>
+	<xs:element name="changeAuthority" type="changeAuthorityElemType"/>
+	<xs:element name="changeAuthorityData" type="changeAuthorityDataElemType"/>
+	<xs:element name="changeAuthorityDataGroup" type="changeAuthorityDataGroupElemType"/>
+	<xs:element name="changeInline" type="changeInlineElemType"/>
+	<xs:element name="checkList" type="checkListElemType"/>
+	<xs:element name="checkListInfo" type="checkListInfoElemType"/>
+	<xs:element name="checkListInterval" type="checkListIntervalElemType"/>
+	<xs:element name="checkListIntervals" type="checkListIntervalsElemType"/>
+	<xs:element name="checkListItem" type="checkListItemElemType"/>
+	<xs:element name="checkListItems" type="checkListItemsElemType"/>
+	<xs:element name="checkListPara" type="checkListParaElemType"/>
+	<xs:element name="checkListProcedure" type="checkListProcedureElemType"/>
+	<xs:element name="checkListStep" type="checkListStepElemType"/>
+	<xs:element name="choice" type="choiceElemType"/>
+	<xs:element name="circuitBreaker" type="circuitBreakerElemType"/>
+	<xs:element name="circuitBreakerAlts" type="circuitBreakerAltsElemType"/>
+	<xs:element name="circuitBreakerClass" type="circuitBreakerClassElemType"/>
+	<xs:element name="circuitBreakerDescr" type="circuitBreakerDescrElemType"/>
+	<xs:element name="circuitBreakerDescrGroup" type="circuitBreakerDescrGroupElemType"/>
+	<xs:element name="circuitBreakerDescrSubGroup" type="circuitBreakerDescrSubGroupElemType"/>
+	<xs:element name="circuitBreakerIdent" type="circuitBreakerIdentElemType">
+		<xs:unique name="oneCircuitBreakerSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@circuitBreakerNumber"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="circuitBreakerLocation" type="circuitBreakerLocationElemType"/>
+	<xs:element name="circuitBreakerRef" type="circuitBreakerRefElemType"/>
+	<xs:element name="circuitBreakerRefGroup" type="circuitBreakerRefGroupElemType"/>
+	<xs:element name="circuitBreakerRepository" type="circuitBreakerRepositoryElemType"/>
+	<xs:element name="circuitBreakerSpec" type="circuitBreakerSpecElemType"/>
+	<xs:element name="closeRqmts" type="closeRqmtsElemType"/>
+	<xs:element name="colspec" type="colspecElemType"/>
+	<xs:element name="commentAddress" type="commentAddressElemType"/>
+	<xs:element name="commentAddressItems" type="commentAddressItemsElemType"/>
+	<xs:element name="commentCode" type="commentCodeElemType"/>
+	<xs:element name="commentContent" type="commentContentElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused commentDispatchNoteRef element; 20171011 JS -->
+	<xs:element name="commentIdent" type="commentIdentElemType"/>
+	<xs:element name="commentOriginator" type="commentOriginatorElemType"/>
+	<xs:element name="commentPriority" type="commentPriorityElemType"/>
+	<xs:element name="commentRef" type="commentRefElemType"/>
+	<xs:element name="commentRefIdent" type="commentRefIdentElemType"/>
+	<xs:element name="commentRefs" type="commentRefsElemType"/>
+	<xs:element name="commentResponse" type="commentResponseElemType"/>
+	<xs:element name="commentStatus" type="commentStatusElemType"/>
+	<xs:element name="commonInfo" type="commonInfoElemType"/>
+	<xs:element name="commonInfoDescrPara" type="commonInfoDescrParaElemType"/>
+	<xs:element name="commonInfoDescrParaAlts" type="commonInfoDescrParaAltsElemType"/>
+	<xs:element name="commonRepository" type="commonRepositoryElemType"/>
+	<xs:element name="complianceCategory" type="complianceCategoryElemType"/>
+	<xs:element name="componentAssy" type="componentAssyElemType"/>
+	<xs:element name="componentAssyGroup" type="componentAssyGroupElemType"/>
+	<xs:element name="cond" type="condElemType"/>
+	<xs:element name="condCrossRefTable" type="condCrossRefTableElemType"/>
+	<xs:element name="condCrossRefTableRef" type="condCrossRefTableRefElemType"/>
+	<xs:element name="condDescr" type="xs:string"/>
+	<xs:element name="condIncorporation" type="condIncorporationElemType"/>
+	<xs:element name="condList" type="condListElemType"/>
+	<xs:element name="condRef" type="condRefElemType"/>
+	<xs:element name="condRefGroup" type="condRefGroupElemType"/>
+	<xs:element name="condType" type="condTypeElemType"/>
+	<xs:element name="condTypeList" type="condTypeListElemType"/>
+	<xs:element name="conduit" type="conduitElemType"/>
+	<xs:element name="conduitGroup" type="conduitGroupElemType"/>
+	<xs:element name="connector" type="connectorElemType"/>
+	<xs:element name="connectorAccessories" type="connectorAccessoriesElemType"/>
+	<xs:element name="connectorGroup" type="connectorGroupElemType"/>
+	<xs:element name="contact" type="contactElemType"/>
+	<xs:element name="contactDescr" type="contactDescrElemType"/>
+	<xs:element name="contactDescrGroup" type="contactDescrGroupElemType"/>
+	<xs:element name="contactDiameter" type="contactDiameterElemType"/>
+	<xs:element name="contactIdentification" type="contactIdentificationElemType"/>
+	<xs:element name="contactInfo" type="contactInfoElemType"/>
+	<xs:element name="contactPerson" type="contactPersonElemType"/>
+	<xs:element name="contactPersonAddress" type="addressElemType"/>
+	<xs:element name="container" type="containerElemType"/>
+	<xs:element name="content" type="contentElemType"/>
+	<xs:element name="contentDescription" type="contentDescriptionElemType"/>
+	<xs:element name="contextAndIsolationInfo" type="contextAndIsolationInfoElemType"/>
+	<xs:element name="contextRules" type="contextRulesElemType"/>
+	<!-- CPF 2015-016AA R4: added new complex element controlAuthority; 20181126 JS -->
+	<xs:element name="controlAuthority" type="controlAuthorityElemType"/>
+	<!-- CPF 2015-016AA R4: added new complex element controlAuthorityGroup; 20181126 JS -->
+	<xs:element name="controlAuthorityGroup" type="controlAuthorityGroupElemType"/>
+	<!-- CPF 2015-016AA R4: added new complex element controlAuthorityText; 20181126 JS -->
+	<xs:element name="controlAuthorityText" type="controlAuthorityTextElemType"/>
+	<xs:element name="controlIndicatorDescr" type="controlIndicatorDescrElemType"/>
+	<xs:element name="controlIndicatorFunction" type="controlIndicatorFunctionElemType"/>
+	<xs:element name="controlIndicatorGroup" type="controlIndicatorGroupElemType"/>
+	<xs:element name="controlIndicatorIdent" type="controlIndicatorIdentElemType">
+		<xs:unique name="oneControlIndicatorSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@controlIndicatorNumber"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="controlIndicatorKey" type="controlIndicatorKeyElemType"/>
+	<xs:element name="controlIndicatorName" type="controlIndicatorNameElemType"/>
+	<xs:element name="controlIndicatorRef" type="controlIndicatorRefElemType"/>
+	<xs:element name="controlIndicatorRepository" type="controlIndicatorRepositoryElemType"/>
+	<xs:element name="controlIndicatorSpec" type="controlIndicatorSpecElemType"/>
+	<xs:element name="copyright" type="copyrightElemType"/>
+	<xs:element name="copyrightPara" type="copyrightParaElemType"/>
+	<xs:element name="correlatedFault" type="correlatedFaultElemType"/>
+	<xs:element name="correlatedFaultAlts" type="correlatedFaultAltsElemType"/>
+	<xs:element name="crew" type="crewElemType"/>
+	<xs:element name="crewDrill" type="crewDrillElemType"/>
+	<xs:element name="crewDrillStep" type="crewDrillStepElemType"/>
+	<xs:element name="crewMember" type="crewMemberElemType"/>
+	<xs:element name="crewMemberGroup" type="crewMemberGroupElemType"/>
+	<xs:element name="crewProcedureName" type="crewProcedureNameElemType"/>
+	<xs:element name="crewRefCard" type="crewRefCardElemType"/>
+	<xs:element name="customerStockNumber" type="customerStockNumberElemType"/>
+	<xs:element name="dataConds" type="dataCondsElemType"/>
+	<xs:element name="dataDestruction" type="dataDestructionElemType"/>
+	<xs:element name="dataDisclosure" type="dataDisclosureElemType"/>
+	<xs:element name="dataDistribution" type="dataDistributionElemType"/>
+	<xs:element name="dataHandling" type="dataHandlingElemType"/>
+	<xs:element name="dataRestrictions" type="dataRestrictionsElemType"/>
+	<xs:element name="ddnAddress" type="ddnAddressElemType"/>
+	<xs:element name="ddnAddressItems" type="ddnAddressItemsElemType"/>
+	<xs:element name="ddnCode" type="ddnCodeElemType"/>
+	<xs:element name="ddnContent" type="ddnContentElemType"/>
+	<xs:element name="ddnIdent" type="ddnIdentElemType"/>
+	<xs:element name="ddnRef" type="ddnRefElemType"/>
+	<xs:element name="ddnRefAddressItems" type="ddnRefAddressItemsElemType"/>
+	<xs:element name="ddnRefGroup" type="ddnRefGroupElemType"/>
+	<xs:element name="ddnRefIdent" type="ddnRefIdentElemType"/>
+	<xs:element name="ddnStatus" type="ddnStatusElemType"/>
+	<xs:element name="default" type="defaultElemType"/>
+	<xs:element name="definitionList" type="definitionListElemType"/>
+	<xs:element name="definitionListHeader" type="definitionListHeaderElemType"/>
+	<xs:element name="definitionListItem" type="definitionListItemElemType"/>
+	<xs:element name="definitionTitle" type="titleElemType"/>
+	<xs:element name="deleteObject" type="deleteObjectElemType"/>
+	<xs:element name="deleteObjectGroup" type="deleteObjectGroupElemType"/>
+	<xs:element name="deliveryList" type="deliveryListElemType"/>
+	<xs:element name="deliveryListItem" type="deliveryListItemElemType"/>
+	<xs:element name="dependency" type="dependencyElemType"/>
+	<xs:element name="descrAccessDoorOrPanel" type="descrAccessDoorOrPanelElemType"/>
+	<xs:element name="descrAccessory" type="descrAccessoryElemType"/>
+	<xs:element name="descrAccessoryPartNumber" type="descrAccessoryPartNumberElemType"/>
+	<xs:element name="descrAltPartNumber" type="descrAltPartNumberElemType"/>
+	<xs:element name="descrAmperage" type="descrAmperageElemType"/>
+	<xs:element name="descrAssy" type="descrAssyElemType"/>
+	<xs:element name="descrAttenuation" type="descrAttenuationElemType"/>
+	<xs:element name="descrBlockGroupingValue" type="descrBlockGroupingValueElemType"/>
+	<xs:element name="descrCircuitIdent" type="descrCircuitIdentElemType"/>
+	<xs:element name="descrCoaxialCableFlag" type="descrCoaxialCableFlagElemType"/>
+	<xs:element name="descrConduit" type="descrConduitElemType"/>
+	<xs:element name="descrConnectionListClass" type="descrConnectionListClassElemType"/>
+	<xs:element name="descrConnector" type="descrConnectorElemType"/>
+	<xs:element name="descrContact" type="descrContactElemType"/>
+	<xs:element name="descrContactCount" type="descrContactCountElemType"/>
+	<xs:element name="descrContactDiameter" type="descrContactDiameterElemType"/>
+	<xs:element name="descrContactSize" type="descrContactSizeElemType"/>
+	<xs:element name="descrCrew" type="descrCrewElemType"/>
+	<xs:element name="descrDistributionPart" type="descrDistributionPartElemType"/>
+	<xs:element name="descrElectricalContact" type="descrElectricalContactElemType"/>
+	<xs:element name="descrElectricalEquip" type="descrElectricalEquipElemType"/>
+	<xs:element name="descrElectricalStateDescr" type="descrElectricalStateDescrElemType"/>
+	<xs:element name="descrEmcCode" type="descrEmcCodeElemType"/>
+	<xs:element name="descrEquipDescrRef" type="descrEquipDescrRefElemType"/>
+	<xs:element name="descrEquipName" type="descrEquipNameElemType"/>
+	<xs:element name="descrFeedThru" type="descrFeedThruElemType"/>
+	<xs:element name="descrFinishingInfo" type="descrFinishingInfoElemType"/>
+	<xs:element name="descrForLocation" type="descrForLocationElemType"/>
+	<xs:element name="descrForPart" type="descrForPartElemType"/>
+	<xs:element name="descrFrequency" type="descrFrequencyElemType"/>
+	<xs:element name="descrFunctionalDescrRef" type="descrFunctionalDescrRefElemType"/>
+	<xs:element name="descrFunctionalItemRef" type="descrFunctionalItemRefElemType"/>
+	<xs:element name="descrGroupCode" type="descrGroupCodeElemType"/>
+	<xs:element name="descrHarness" type="descrHarnessElemType"/>
+	<xs:element name="descrHarnessEnvironment" type="descrHarnessEnvironmentElemType"/>
+	<xs:element name="descrHarnessIdent" type="descrHarnessIdentElemType"/>
+	<xs:element name="descrHarnessName" type="descrHarnessNameElemType"/>
+	<xs:element name="descrHarnessVariantIdent" type="descrHarnessVariantIdentElemType"/>
+	<xs:element name="descrHarnessVariantIssue" type="descrHarnessVariantIssueElemType"/>
+	<xs:element name="descrIdentSleeve" type="descrIdentSleeveElemType"/>
+	<xs:element name="descrIllustrationRef" type="descrIllustrationRefElemType"/>
+	<xs:element name="descrImpedance" type="descrImpedanceElemType"/>
+	<xs:element name="descrInstallationLocation" type="descrInstallationLocationElemType"/>
+	<xs:element name="descrLength" type="descrLengthElemType"/>
+	<xs:element name="descrManufacturerCode" type="descrManufacturerCodeElemType"/>
+	<xs:element name="descrMass" type="descrMassElemType"/>
+	<xs:element name="descrMaterial" type="descrMaterialElemType"/>
+	<xs:element name="descrMaxDiameter" type="descrMaxDiameterElemType"/>
+	<xs:element name="descrMaxHarnessSize" type="descrMaxHarnessSizeElemType"/>
+	<xs:element name="descrMaxMountingPositions" type="descrMaxMountingPositionsElemType"/>
+	<xs:element name="descrMaxTemperature" type="descrMaxTemperatureElemType"/>
+	<xs:element name="descrMinDiameter" type="descrMinDiameterElemType"/>
+	<xs:element name="descrMinHarnessSize" type="descrMinHarnessSizeElemType"/>
+	<xs:element name="descrMinTemperature" type="descrMinTemperatureElemType"/>
+	<xs:element name="descrNetworkAnalysisCode" type="descrNetworkAnalysisCodeElemType"/>
+	<xs:element name="descrNextHigherAssy" type="descrNextHigherAssyElemType"/>
+	<xs:element name="descrNumberOfCores" type="descrNumberOfCoresElemType"/>
+	<xs:element name="descrOrientation" type="descrOrientationElemType"/>
+	<xs:element name="descrOuterDiameter" type="descrOuterDiameterElemType"/>
+	<xs:element name="descrOuterJacketColor" type="descrOuterJacketColorElemType"/>
+	<xs:element name="descrPartNumber" type="descrPartNumberElemType"/>
+	<xs:element name="descrPositionOnNextHigherAssy" type="descrPositionOnNextHigherAssyElemType"/>
+	<xs:element name="descrPreparationInfo" type="descrPreparationInfoElemType"/>
+	<xs:element name="descrRack" type="descrRackElemType"/>
+	<xs:element name="descrReqQuantity" type="descrReqQuantityElemType"/>
+	<xs:element name="descrResistance" type="descrResistanceElemType"/>
+	<xs:element name="descrResponsiblePartnerCompany" type="descrResponsiblePartnerCompanyElemType"/>
+	<xs:element name="descrRestriction" type="descrRestrictionElemType"/>
+	<xs:element name="descrRouting" type="descrRoutingElemType"/>
+	<xs:element name="descrScreen" type="descrScreenElemType"/>
+	<xs:element name="descrScreenCount" type="descrScreenCountElemType"/>
+	<xs:element name="descrSectionIdent" type="descrSectionIdentElemType"/>
+	<xs:element name="descrShrinkSleeve" type="descrShrinkSleeveElemType"/>
+	<xs:element name="descrShuntGroupingValue" type="descrShuntGroupingValueElemType"/>
+	<xs:element name="descrSiblingPlugIdent" type="descrSiblingPlugIdentElemType"/>
+	<xs:element name="descrSignalInfo" type="descrSignalInfoElemType"/>
+	<xs:element name="descrSize" type="descrSizeElemType"/>
+	<xs:element name="descrSleeve" type="descrSleeveElemType"/>
+	<xs:element name="descrSolderSleeve" type="descrSolderSleeveElemType"/>
+	<xs:element name="descrSpecialTerminal" type="descrSpecialTerminalElemType"/>
+	<xs:element name="descrStandardPartGroup" type="descrStandardPartGroupElemType"/>
+	<xs:element name="descrSurfaceProtection" type="descrSurfaceProtectionElemType"/>
+	<xs:element name="descrSystemBreakdownCode" type="descrSystemBreakdownCodeElemType"/>
+	<xs:element name="descrTerminationModuleGroupingValue" type="descrTerminationModuleGroupingValueElemType"/>
+	<xs:element name="descrThermoCoupleMinus" type="descrThermoCoupleMinusElemType"/>
+	<xs:element name="descrThermoCouplePlus" type="descrThermoCouplePlusElemType"/>
+	<xs:element name="descrTransverseLink" type="descrTransverseLinkElemType"/>
+	<xs:element name="descrTriaxialCableFlag" type="descrTriaxialCableFlagElemType"/>
+	<xs:element name="descrTwist" type="descrTwistElemType"/>
+	<xs:element name="descrVoltage" type="descrVoltageElemType"/>
+	<xs:element name="descrWallThickness" type="descrWallThicknessElemType"/>
+	<xs:element name="descrWire" type="descrWireElemType"/>
+	<xs:element name="descrWireColor" type="descrWireColorElemType"/>
+	<xs:element name="descrWireConnectionCode" type="descrWireConnectionCodeElemType"/>
+	<xs:element name="descrWireGauge" type="descrWireGaugeElemType"/>
+	<xs:element name="descrWireInfoCircuitIdent" type="descrWireInfoCircuitIdentElemType"/>
+	<xs:element name="descrWireInfoSectionIdent" type="descrWireInfoSectionIdentElemType"/>
+	<xs:element name="descrWireMaterial" type="descrWireMaterialElemType"/>
+	<xs:element name="descrWireNumber" type="descrWireNumberElemType"/>
+	<xs:element name="descrWireRoute" type="descrWireRouteElemType"/>
+	<xs:element name="descrWireSeqNumber" type="descrWireSeqNumberElemType"/>
+	<xs:element name="descrWireType" type="descrWireTypeElemType"/>
+	<xs:element name="description" type="descriptionElemType"/>
+	<xs:element name="detailedFaultDescr" type="detailedFaultDescrElemType"/>
+	<xs:element name="detectedFault" type="detectedFaultElemType"/>
+	<xs:element name="detectedFaultAlts" type="detectedFaultAltsElemType"/>
+	<xs:element name="detectedLruItem" type="detectedLruItemElemType"/>
+	<xs:element name="detectedSruItem" type="detectedSruItemElemType"/>
+	<xs:element name="detectionInfo" type="detectionInfoElemType"/>
+	<xs:element name="diagnosticProcess" type="diagnosticProcessElemType"/>
+	<xs:element name="dialog" type="dialogElemType"/>
+	<xs:element name="dialogAlts" type="dialogAltsElemType"/>
+	<xs:element name="dialogGroup" type="dialogGroupElemType"/>
+	<xs:element name="dispatchAddress" type="dispatchAddressElemType"/>
+	<xs:element name="dispatchFrom" type="dispatchFromElemType"/>
+	<xs:element name="dispatchPerson" type="dispatchPersonElemType"/>
+	<xs:element name="dispatchTo" type="dispatchToElemType"/>
+	<xs:element name="displayText" type="displayTextElemType"/>
+	<xs:element name="distributionPart" type="distributionPartElemType"/>
+	<xs:element name="distributionPartGroup" type="distributionPartGroupElemType"/>
+	<xs:element name="dmAddress" type="dmAddressElemType"/>
+	<xs:element name="dmAddressItems" type="dmAddressItemsElemType"/>
+	<xs:element name="dmCode" type="dmCodeElemType"/>
+	<xs:element name="dmElseSeq" type="dmSeqGenericElemType"/>
+	<xs:element name="dmIdent" type="dmIdentElemType"/>
+	<xs:element name="dmIf" type="dmIfElemType"/>
+	<xs:element name="dmLoop" type="dmLoopElemType"/>
+	<xs:element name="dmNode" type="dmNodeElemType"/>
+	<xs:element name="dmNodeAlts" type="dmNodeAltsElemType"/>
+	<xs:element name="dmRef" type="dmRefElemType"/>
+	<xs:element name="dmRefAddressItems" type="dmRefAddressItemsElemType"/>
+	<xs:element name="dmRefGroup" type="dmRefGroupElemType"/>
+	<xs:element name="dmRefIdent" type="dmRefIdentElemType"/>
+	<xs:element name="dmSegmentRef" type="dmSegmentRefElemType"/>
+	<xs:element name="dmSeq" type="dmSeqGenericElemType"/>
+	<xs:element name="dmSeqAlts" type="dmSeqAltsElemType"/>
+	<xs:element name="dmStatus" type="dmStatusGenericElemType"/>
+	<xs:element name="dmThenSeq" type="dmSeqGenericElemType"/>
+	<xs:element name="dmTitle" type="dmTitleElemType"/>
+	<xs:element name="dmlAddress" type="dmlAddressElemType"/>
+	<xs:element name="dmlAddressItems" type="dmlAddressItemsElemType"/>
+	<xs:element name="dmlCode" type="dmlCodeElemType"/>
+	<xs:element name="dmlContent" type="dmlContentElemType"/>
+	<xs:element name="dmlEntry" type="dmlEntryElemType"/>
+	<xs:element name="dmlIdent" type="dmlIdentElemType"/>
+	<xs:element name="dmlRef" type="dmlRefElemType"/>
+	<xs:element name="dmlRefGroup" type="dmlRefGroupElemType"/>
+	<xs:element name="dmlRefIdent" type="dmlRefIdentElemType"/>
+	<xs:element name="dmlStatus" type="dmlStatusElemType"/>
+	<xs:element name="documentIncorporation" type="documentIncorporationElemType"/>
+	<xs:element name="effectivity" type="effectivityElemType"/>
+	<xs:element name="electricalEquip" type="electricalEquipElemType"/>
+	<xs:element name="electricalEquipAlts" type="electricalEquipAltsElemType"/>
+	<xs:element name="electricalEquipConnection" type="electricalEquipConnectionElemType"/>
+	<xs:element name="electricalEquipGroup" type="electricalEquipGroupElemType"/>
+	<xs:element name="electricalEquipState" type="electricalEquipStateElemType"/>
+	<xs:element name="electricalLogic" type="electricalLogicElemType"/>
+	<xs:element name="electricalPotential" type="electricalPotentialElemType"/>
+	<xs:element name="elseIf" type="elseIfElemType"/>
+	<xs:element name="email" type="emailElemType"/>
+	<xs:element name="embeddedSpareDescr" type="embeddedSpareDescrElemType"/>
+	<xs:element name="embeddedSupplyDescr" type="embeddedSupplyDescrElemType"/>
+	<xs:element name="embeddedSupportEquipDescr" type="embeddedSupportEquipDescrElemType"/>
+	<xs:element name="emphasis" type="emphasisElemType"/>
+	<xs:element name="enabledState" type="enabledStateElemType"/>
+	<xs:element name="endItemCode" type="xs:string"/>
+	<xs:element name="endMatter" type="endMatterElemType"/>
+	<xs:element name="enterprise" type="enterpriseElemType"/>
+	<xs:element name="enterpriseGroup" type="enterpriseGroupElemType"/>
+	<xs:element name="enterpriseIdent" type="enterpriseIdentElemType">
+		<xs:unique name="oneEnterpriseSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@manufacturerCodeValue"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="enterpriseIdentAlt" type="enterpriseIdentAltElemType"/>
+	<xs:element name="enterpriseInfo" type="enterpriseInfoElemType"/>
+	<xs:element name="enterpriseLogo" type="logoElemType"/>
+	<xs:element name="enterpriseRef" type="enterpriseRefElemType"/>
+	<xs:element name="enterpriseRepository" type="enterpriseRepositoryElemType"/>
+	<xs:element name="enterpriseSpec" type="enterpriseSpecElemType"/>
+	<xs:element name="entry" type="entryElemType"/>
+	<xs:element name="enumeration" type="enumerationElemType"/>
+	<xs:element name="equip" type="equipElemType"/>
+	<xs:element name="equipDescrRef" type="equipDescrRefElemType"/>
+	<xs:element name="equipGroup" type="equipGroupElemType"/>
+	<xs:element name="equipmentNotAvailable" type="equipmentNotAvailableElemType"/>
+	<xs:element name="estimatedTime" type="estimatedTimeElemType"/>
+	<xs:element name="evaluate" type="evaluateElemType"/>
+	<xs:element name="exportControl" type="exportControlElemType"/>
+	<xs:element name="exportRegistrationCode" type="exportRegistrationCodeElemType"/>
+	<xs:element name="exportRegistrationStmt" type="exportRegistrationStmtElemType"/>
+	<xs:element name="expression" type="expressionElemType"/>
+	<xs:element name="externalApplication" type="externalApplicationElemType"/>
+	<xs:element name="externalAssert" type="externalAssertElemType"/>
+	<xs:element name="externalCond" type="externalCondElemType"/>
+	<xs:element name="externalProductAttribute" type="externalProductAttributeElemType"/>
+	<xs:element name="externalPubCode" type="externalPubCodeElemType"/>
+	<xs:element name="externalPubIssue" type="externalPubIssueElemType"/>
+	<xs:element name="externalPubIssueDate" type="externalPubIssueDateElemType"/>
+	<xs:element name="externalPubIssueInfo" type="externalPubIssueInfoElemType"/>
+	<xs:element name="externalPubRef" type="externalPubRefElemType"/>
+	<xs:element name="externalPubRefAddressItems" type="externalPubRefAddressItemsElemType"/>
+	<xs:element name="externalPubRefIdent" type="externalPubRefIdentElemType"/>
+	<xs:element name="externalPubTitle" type="externalPubTitleElemType"/>
+	<xs:element name="externalSco" type="externalScoElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused externalScoCode element; 20171011 JS -->
+	<!-- CPF 2015-012EPWG R1: deleted unused externalScoIssue element; 20171011 JS -->
+	<!-- CPF 2015-012EPWG R1: deleted unused externalScoIssueInfo element; 20171011 JS -->
+	<!-- CPF 2015-012EPWG R1: deleted unused externalScoTitle element; 20171011 JS -->
+	<xs:element name="extraResources" type="extraResourcesElemType"/>
+	<xs:element name="falseValue" type="emptyElemType"/>
+	<xs:element name="fastener" type="fastenerElemType"/>
+	<xs:element name="fastenerQuantity" type="fastenerQuantityElemType"/>
+	<xs:element name="fastenerType" type="fastenerTypeElemType"/>
+	<xs:element name="fault" type="faultElemType"/>
+	<xs:element name="faultCond" type="faultCondElemType"/>
+	<xs:element name="faultDescr" type="faultDescrElemType"/>
+	<xs:element name="faultEquip" type="faultEquipElemType"/>
+	<xs:element name="faultIsolation" type="faultIsolationElemType"/>
+	<xs:element name="faultIsolationProcedure" type="faultIsolationProcedureElemType"/>
+	<xs:element name="faultIsolationRef" type="faultIsolationRefElemType"/>
+	<xs:element name="faultIsolationTest" type="faultIsolationTestElemType"/>
+	<xs:element name="faultMessageBody" type="faultMessageBodyElemType"/>
+	<xs:element name="faultMessageIndication" type="faultMessageIndicationElemType"/>
+	<xs:element name="faultReporting" type="faultReportingElemType"/>
+	<xs:element name="faultySubSystem" type="faultySubSystemElemType"/>
+	<xs:element name="faxNumber" type="faxNumberElemType"/>
+	<xs:element name="feedThru" type="feedThruElemType"/>
+	<xs:element name="figure" type="figureElemType"/>
+	<xs:element name="figureAlts" type="figureAltsElemType"/>
+	<xs:element name="figureAltsIdent" type="figureAltsIdentElemType"/>
+	<xs:element name="figureIdent" type="figureIdentElemType"/>
+	<xs:element name="finishingInfo" type="finishingInfoElemType"/>
+	<xs:element name="firstVerification" type="firstVerificationElemType"/>
+	<xs:element name="fitmentCode" type="fitmentCodeElemType"/>
+	<xs:element name="foldout" type="foldoutElemType"/>
+	<xs:element name="footnote" type="footnoteElemType"/>
+	<xs:element name="footnoteRef" type="footnoteRefElemType"/>
+	<xs:element name="footnoteRemarks" type="footnoteRemarksElemType"/>
+	<xs:element name="frequency" type="frequencyElemType"/>
+	<xs:element name="frequencyAttenuation" type="frequencyAttenuationElemType"/>
+	<xs:element name="frequencyCharacteristics" type="frequencyCharacteristicsElemType"/>
+	<xs:element name="fromEquip" type="fromEquipElemType"/>
+	<xs:element name="frontMatter" type="frontMatterElemType"/>
+	<xs:element name="frontMatterDmEntry" type="frontMatterDmEntryElemType"/>
+	<xs:element name="frontMatterExternalPubEntry" type="frontMatterExternalPubEntryElemType"/>
+	<xs:element name="frontMatterInfo" type="frontMatterInfoElemType"/>
+	<xs:element name="frontMatterList" type="frontMatterListElemType"/>
+	<xs:element name="frontMatterPmEntry" type="frontMatterPmEntryElemType"/>
+	<xs:element name="frontMatterSubList" type="frontMatterSubListElemType"/>
+	<xs:element name="frontMatterTableOfContent" type="frontMatterTableOfContentElemType"/>
+	<xs:element name="frontMatterTitlePage" type="frontMatterTitlePageElemType"/>
+	<xs:element name="functionalDescrRef" type="functionalDescrRefElemType"/>
+	<xs:element name="functionalItem" type="functionalItemElemType"/>
+	<xs:element name="functionalItemAlts" type="functionalItemAltsElemType"/>
+	<xs:element name="functionalItemFamily" type="functionalItemFamilyElemType"/>
+	<xs:element name="functionalItemIdent" type="functionalItemIdentElemType">
+		<xs:unique name="oneFunctionalItemSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@functionalItemNumber"/>
+			<xs:field xpath="@functionalItemType"/>
+			<xs:field xpath="@manufacturerCodeValue"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="functionalItemRef" type="functionalItemRefElemType"/>
+	<xs:element name="functionalItemRefGroup" type="functionalItemRefGroupElemType"/>
+	<xs:element name="functionalItemRepository" type="functionalItemRepositoryElemType"/>
+	<xs:element name="functionalItemSpec" type="functionalItemSpecElemType"/>
+	<xs:element name="functionalPhysicalAreaIdent" type="functionalPhysicalAreaIdentElemType">
+		<xs:unique name="oneFunctionalPhysicalAreaSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@systemDiffCode"/>
+			<xs:field xpath="@systemCode"/>
+			<xs:field xpath="@subSystemCode"/>
+			<xs:field xpath="@subSubSystemCode"/>
+			<xs:field xpath="@assyCode"/>
+			<xs:field xpath="@disassyCode"/>
+			<xs:field xpath="@disassyCodeVariant"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="functionalPhysicalAreaRef" type="functionalPhysicalAreaRefElemType"/>
+	<xs:element name="functionalPhysicalAreaRefGroup" type="functionalPhysicalAreaRefGroupElemType"/>
+	<xs:element name="functionalPhysicalAreaRepository" type="functionalPhysicalAreaRepositoryElemType"/>
+	<xs:element name="functionalPhysicalAreaSpec" type="functionalPhysicalAreaSpecElemType"/>
+	<xs:element name="genericPartData" type="genericPartDataElemType"/>
+	<xs:element name="genericPartDataGroup" type="genericPartDataGroupElemType"/>
+	<xs:element name="genericProperty" type="genericPropertyElemType"/>
+	<xs:element name="genericPropertyGroup" type="genericPropertyGroupElemType"/>
+	<xs:element name="globalPropertyRef" type="globalPropertyRefElemType"/>
+	<xs:element name="graphic" type="graphicElemType"/>
+	<xs:element name="groundingType" type="groundingTypeElemType"/>
+	<xs:element name="groupNumber" type="groupNumberElemType"/>
+	<xs:element name="harness" type="harnessElemType"/>
+	<xs:element name="harnessAlts" type="harnessAltsElemType"/>
+	<xs:element name="harnessEnvironment" type="harnessEnvironmentElemType"/>
+	<xs:element name="harnessGroup" type="harnessGroupElemType"/>
+	<xs:element name="harnessIdent" type="harnessIdentElemType"/>
+	<xs:element name="harnessInfo" type="harnessInfoElemType"/>
+	<xs:element name="harnessSize" type="harnessSizeElemType"/>
+	<xs:element name="hazardousClass" type="hazardousClassElemType"/>
+	<xs:element name="hotspot" type="hotspotElemType"/>
+	<xs:element name="hoursToClose" type="hoursToCloseElemType"/>
+	<xs:element name="hoursToOpen" type="hoursToOpenElemType"/>
+	<xs:element name="identAndStatusSection" type="identAndStatusSectionElemType"/>
+	<xs:element name="identExtension" type="identExtensionElemType"/>
+	<xs:element name="identNumber" type="identNumberElemType"/>
+	<xs:element name="identSleeve" type="identSleeveElemType"/>
+	<xs:element name="identSleeveGroup" type="identSleeveGroupElemType"/>
+	<xs:element name="if" type="ifElemType"/>
+	<xs:element name="illustratedPartsCatalog" type="illustratedPartsCatalogElemType"/>
+	<xs:element name="illustrationRef" type="illustrationRefElemType"/>
+	<xs:element name="ilsNumber" type="ilsNumberElemType"/>
+	<xs:element name="impedance" type="impedanceElemType"/>
+	<xs:element name="incorporation" type="incorporationElemType"/>
+	<xs:element name="incorporationStatus" type="incorporationStatusElemType"/>
+	<xs:element name="indexFlag" type="indexFlagElemType"/>
+	<xs:element name="infoEntityRef" type="infoEntityRefElemType"/>
+	<xs:element name="initialProvisioningProject" type="initialProvisioningProjectElemType"/>
+	<xs:element name="initialProvisioningProjectRef" type="initialProvisioningProjectRefElemType"/>
+	<xs:element name="initialize" type="initializeElemType"/>
+	<xs:element name="inlineSignificantData" type="inlineSignificantDataElemType"/>
+	<xs:element name="insertObject" type="insertObjectGenericElemType"/>
+	<xs:element name="insertObjectGroup" type="insertObjectGroupElemType"/>
+	<xs:element name="inspection" type="inspectionElemType"/>
+	<xs:element name="inspectionDefinition" type="inspectionDefinitionElemType"/>
+	<xs:element name="inspectionType" type="inspectionTypeElemType"/>
+	<xs:element name="installationInfo" type="installationInfoElemType"/>
+	<xs:element name="installationLocation" type="installationLocationElemType"/>
+	<xs:element name="interchangeability" type="interchangeabilityElemType"/>
+	<xs:element name="internalRef" type="internalRefElemType"/>
+	<xs:element name="internet" type="internetElemType"/>
+	<xs:element name="isolateDetectedFault" type="isolateDetectedFaultElemType"/>
+	<xs:element name="isolatedFault" type="isolatedFaultElemType"/>
+	<xs:element name="isolatedFaultAlts" type="isolatedFaultAltsElemType"/>
+	<xs:element name="isolationInfo" type="isolationInfoElemType"/>
+	<xs:element name="isolationMainProcedure" type="isolationMainProcedureElemType"/>
+	<xs:element name="isolationProcedure" type="isolationProcedureElemType"/>
+	<xs:element name="isolationProcedureEnd" type="isolationProcedureEndElemType"/>
+	<xs:element name="isolationProcedureEndAlts" type="isolationProcedureEndAltsElemType"/>
+	<xs:element name="isolationStep" type="isolationStepElemType"/>
+	<xs:element name="isolationStepAlts" type="isolationStepAltsElemType"/>
+	<xs:element name="isolationStepAnswer" type="isolationStepAnswerElemType"/>
+	<xs:element name="isolationStepQuestion" type="isolationStepQuestionElemType"/>
+	<xs:element name="issueDate" type="issueDateElemType"/>
+	<xs:element name="issueInfo" type="issueInfoGenericElemType"/>
+	<xs:element name="itemDescr" type="itemDescrElemType"/>
+	<xs:element name="itemIdentData" type="itemIdentDataElemType"/>
+	<xs:element name="itemNumber" type="itemNumberElemType"/>
+	<xs:element name="itemSeqNumber" type="itemSeqNumberElemType"/>
+	<xs:element name="language" type="languageElemType"/>
+	<xs:element name="lcAbilities" type="lcDescrGenericElemType"/>
+	<xs:element name="lcAccessibility" type="lcDescrGenericElemType"/>
+	<xs:element name="lcActualPerformanceStatement" type="lcDescrGenericElemType"/>
+	<xs:element name="lcAge" type="lcDescrGenericElemType"/>
+	<xs:element name="lcAnswerOption" type="lcAnswerOptionElemType"/>
+	<xs:element name="lcAnswerOptionContent" type="lcDescrGenericElemType"/>
+	<xs:element name="lcAnswerOptionGroup" type="lcAnswerOptionGroupElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused lcAssessment element; 20171011 JS -->
+	<xs:element name="lcAssessmentComponent" type="lcAssessmentComponentElemType"/>
+	<xs:element name="lcAssessmentStrategy" type="lcAssessmentStrategyElemType"/>
+	<xs:element name="lcAsset" type="lcAssetElemType"/>
+	<xs:element name="lcAttitude" type="lcDescrGenericElemType"/>
+	<xs:element name="lcAttitudeTowardContent" type="lcDescrGenericElemType"/>
+	<xs:element name="lcAudience" type="lcAudienceElemType"/>
+	<xs:element name="lcBrowsers" type="lcDescrGenericElemType"/>
+	<xs:element name="lcCapacity" type="lcDescrGenericElemType"/>
+	<xs:element name="lcCauseAnalysis" type="lcCauseAnalysisElemType"/>
+	<xs:element name="lcClassroom" type="lcDescrGenericElemType"/>
+	<xs:element name="lcClient" type="lcTitleAndDescriptionElemType"/>
+	<xs:element name="lcCompletion" type="lcCompletionElemType"/>
+	<xs:element name="lcContentIdentifierName" type="lcDescrGenericElemType"/>
+	<xs:element name="lcCorrectResponse" type="lcCorrectResponseElemType"/>
+	<xs:element name="lcCourseIdentNumber" type="lcTitleAndDescrGenericElemType"/>
+	<xs:element name="lcCurrentEntryBehaviors" type="lcDescrGenericElemType"/>
+	<xs:element name="lcData" type="lcDescrGenericElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused lcDelivery element; 20171011 JS -->
+	<xs:element name="lcDeliveryDate" type="lcTitleAndDescrGenericElemType"/>
+	<xs:element name="lcDesiredPerformanceStatement" type="lcDescrGenericElemType"/>
+	<xs:element name="lcDownloadTime" type="lcDescrGenericElemType"/>
+	<xs:element name="lcDragAndDrop" type="lcDragAndDropElemType"/>
+	<xs:element name="lcDuration" type="lcDurationElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused lcEdLevel element; 20171011 JS -->
+	<xs:element name="lcEducationLevel" type="lcDescrGenericElemType"/>
+	<xs:element name="lcEntryBehavior" type="lcDescrGenericElemType"/>
+	<xs:element name="lcEnvironmentalFactor" type="lcEnvironmentalFactorElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused lcFeedbackCorrect element; 20171011 JS -->
+	<!-- CPF 2015-012EPWG R1: deleted unused lcFeedbackIncorrect element; 20171011 JS -->
+	<xs:element name="lcFeedbackItem" type="lcFeedbackItemElemType"/>
+	<xs:element name="lcFeedbackItemGroup" type="lcFeedbackItemGroupElemType"/>
+	<xs:element name="lcFileSizeLimitations" type="lcDescrGenericElemType"/>
+	<xs:element name="lcFormativeEvaluation" type="lcTitleAndDescrGenericElemType"/>
+	<xs:element name="lcGapAnalysis" type="lcGapAnalysisElemType"/>
+	<xs:element name="lcGapItem" type="lcGapItemElemType"/>
+	<xs:element name="lcGapStatement" type="lcDescrGenericElemType"/>
+	<xs:element name="lcGoalStatement" type="lcDescrGenericElemType"/>
+	<xs:element name="lcGraphicStandards" type="lcDescrGenericElemType"/>
+	<xs:element name="lcHotspot" type="lcHotspotElemType"/>
+	<xs:element name="lcHotspotMap" type="lcHotspotMapElemType"/>
+	<xs:element name="lcHumanResourceDevelopment" type="lcDescrGenericElemType"/>
+	<xs:element name="lcImmediatePerformanceCompetence" type="lcDescrGenericElemType"/>
+	<xs:element name="lcIncentives" type="lcDescrGenericElemType"/>
+	<xs:element name="lcInstruction" type="lcTitleAndDescriptionElemType"/>
+	<xs:element name="lcInteraction" type="lcInteractionElemType"/>
+	<xs:element name="lcInternalFactor" type="lcInternalFactorElemType"/>
+	<xs:element name="lcInterventionDefinition" type="lcInterventionDefinitionElemType"/>
+	<xs:element name="lcInterventionImplementation" type="lcTitleAndDescrGenericElemType"/>
+	<xs:element name="lcIntro" type="lcDescrGenericElemType"/>
+	<xs:element name="lcItem" type="lcItemElemType"/>
+	<xs:element name="lcJobCode" type="lcDescrGenericElemType"/>
+	<xs:element name="lcJobDesign" type="lcDescrGenericElemType"/>
+	<xs:element name="lcJobTitle" type="lcDescrGenericElemType"/>
+	<xs:element name="lcJobTransfer" type="lcDescrGenericElemType"/>
+	<xs:element name="lcJtaItem" type="lcDescrGenericElemType"/>
+	<xs:element name="lcKnowledge" type="lcDescrGenericElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused lcLearnStrat element; 20171011 JS -->
+	<xs:element name="lcLearningObjectives" type="lcLearningObjectivesElemType"/>
+	<xs:element name="lcLearningPlan" type="lcTitleAndDescrGenericElemType"/>
+	<xs:element name="lcLearningPreferences" type="lcDescrGenericElemType"/>
+	<xs:element name="lcLearningStrategy" type="lcDescrGenericElemType"/>
+	<xs:element name="lcLms" type="lcDescrGenericElemType"/>
+	<xs:element name="lcLocalCultureConsiderations" type="lcDescrGenericElemType"/>
+	<xs:element name="lcManagerialSupport" type="lcDescrGenericElemType"/>
+	<xs:element name="lcMasteryScoreCriteria" type="lcDescrGenericElemType"/>
+	<xs:element name="lcMatchTable" type="lcMatchTableElemType"/>
+	<xs:element name="lcMatching" type="lcMatchingElemType"/>
+	<xs:element name="lcMatchingHeader" type="lcMatchingHeaderElemType"/>
+	<xs:element name="lcMatchingItem" type="lcMatchingItemElemType"/>
+	<xs:element name="lcMatchingPair" type="lcMatchingPairElemType"/>
+	<xs:element name="lcMinimumPassThreshold" type="lcDescrGenericElemType"/>
+	<xs:element name="lcMissionStatement" type="lcDescrGenericElemType"/>
+	<xs:element name="lcModificationDate" type="lcTitleAndDescrGenericElemType"/>
+	<xs:element name="lcMotives" type="lcDescrGenericElemType"/>
+	<xs:element name="lcMultipleSelect" type="lcMultipleSelectElemType"/>
+	<xs:element name="lcNextSteps" type="lcDescrGenericElemType"/>
+	<xs:element name="lcNonLmsItEnvironment" type="lcDescrGenericElemType"/>
+	<xs:element name="lcNonTrainingInterventions" type="lcNonTrainingInterventionsElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused lcObjective element; 20171011 JS -->
+	<!-- CPF 2015-012EPWG R1: deleted unused lcObjectiveGroup element; 20171011 JS -->
+	<xs:element name="lcObjectiveItem" type="lcObjectiveItemElemType"/>
+	<xs:element name="lcObjectiveItemGroup" type="lcObjectiveItemGroupElemType"/>
+	<xs:element name="lcObjectiveStatement" type="lcDescrGenericElemType"/>
+	<xs:element name="lcOjt" type="lcDescrGenericElemType"/>
+	<xs:element name="lcOrganizationalAnalysis" type="lcOrganizationalAnalysisElemType"/>
+	<xs:element name="lcOrganizationalCommunication" type="lcDescrGenericElemType"/>
+	<xs:element name="lcOrganizationalDesign" type="lcDescrGenericElemType"/>
+	<xs:element name="lcOrganizationalEnvironmentAnalysis" type="lcTitleAndDescrGenericElemType"/>
+	<xs:element name="lcOrganizationalImpact" type="lcDescrGenericElemType"/>
+	<xs:element name="lcPaperBasedMaterials" type="lcDescrGenericElemType"/>
+	<xs:element name="lcPerformanceAnalysis" type="lcPerformanceAnalysisElemType"/>
+	<xs:element name="lcPerformanceEvaluation" type="lcPerformanceEvaluationElemType"/>
+	<xs:element name="lcPerformanceRubric" type="lcDescrGenericElemType"/>
+	<xs:element name="lcPerformanceSupport" type="lcDescrGenericElemType"/>
+	<xs:element name="lcPerformerAnalysis" type="lcPerformerAnalysisElemType"/>
+	<xs:element name="lcPersonalDevelopment" type="lcDescrGenericElemType"/>
+	<xs:element name="lcPhysicalAspectsOfSite" type="lcDescrGenericElemType"/>
+	<xs:element name="lcPlanObjective" type="lcDescrGenericElemType"/>
+	<xs:element name="lcPlanSubject" type="lcTitleAndDescriptionElemType"/>
+	<xs:element name="lcPlayers" type="lcDescrGenericElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused lcPrereqs element; 20171011 JS -->
+	<xs:element name="lcPrerequisites" type="lcTitleAndDescrGenericElemType"/>
+	<xs:element name="lcProfessionalBackground" type="lcDescrGenericElemType"/>
+	<xs:element name="lcProject" type="lcProjectElemType"/>
+	<xs:element name="lcQuestion" type="lcDescriptionGroupElemType"/>
+	<xs:element name="lcRequiredEntryBehaviors" type="lcTitleAndDescrGenericElemType"/>
+	<xs:element name="lcRequiredEquipment" type="lcDescrGenericElemType"/>
+	<xs:element name="lcRequiredFacilities" type="lcDescrGenericElemType"/>
+	<xs:element name="lcRequiredFinances" type="lcDescrGenericElemType"/>
+	<xs:element name="lcRequiredPersonnel" type="lcDescrGenericElemType"/>
+	<xs:element name="lcResolution" type="lcDescrGenericElemType"/>
+	<xs:element name="lcResources" type="lcDescrGenericElemType"/>
+	<xs:element name="lcReview" type="lcDescrGenericElemType"/>
+	<xs:element name="lcScoringMethod" type="lcDescrGenericElemType"/>
+	<xs:element name="lcSection" type="lcDescrGenericElemType"/>
+	<xs:element name="lcSecurity" type="lcDescrGenericElemType"/>
+	<xs:element name="lcSequence" type="lcSequenceElemType"/>
+	<xs:element name="lcSequenceOption" type="lcSequenceOptionElemType"/>
+	<xs:element name="lcSequenceOptionGroup" type="lcSequenceOptionGroupElemType"/>
+	<xs:element name="lcSequencing" type="lcSequencingElemType"/>
+	<xs:element name="lcSingleSelect" type="lcSingleSelectElemType"/>
+	<xs:element name="lcSkills" type="lcDescrGenericElemType"/>
+	<xs:element name="lcSocialAspectsOfSite" type="lcDescrGenericElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused lcSpecChars element; 20171011 JS -->
+	<xs:element name="lcSpecialFactors" type="lcDescrGenericElemType"/>
+	<xs:element name="lcSummary" type="lcDescrGenericElemType"/>
+	<xs:element name="lcSummativeEvaluation" type="lcSummativeEvaluationElemType"/>
+	<xs:element name="lcTargetAudience" type="lcTargetAudienceElemType"/>
+	<xs:element name="lcTechnicalRqmts" type="lcTechnicalRqmtsElemType"/>
+	<xs:element name="lcTime" type="lcDescrGenericElemType"/>
+	<xs:element name="lcTrainingComponent" type="lcTrainingComponentElemType"/>
+	<xs:element name="lcTrainingInterventions" type="lcTrainingInterventionsElemType"/>
+	<xs:element name="lcTrainingType" type="lcDescrGenericElemType"/>
+	<xs:element name="lcTrueFalse" type="lcTrueFalseElemType"/>
+	<xs:element name="lcValues" type="lcDescrGenericElemType"/>
+	<xs:element name="lcViewers" type="lcDescrGenericElemType"/>
+	<xs:element name="lcVisionStatement" type="lcDescrGenericElemType"/>
+	<xs:element name="lcWorkEnvironmentAnalysis" type="lcWorkEnvironmentAnalysisElemType"/>
+	<xs:element name="learning" type="learningElemType"/>
+	<xs:element name="learningAssessment" type="learningAssessmentElemType"/>
+	<xs:element name="learningContent" type="learningContentElemType"/>
+	<xs:element name="learningOverview" type="learningOverviewElemType"/>
+	<xs:element name="learningPlan" type="learningPlanElemType"/>
+	<xs:element name="learningSummary" type="learningSummaryElemType"/>
+	<xs:element name="legend" type="legendElemType"/>
+	<xs:element name="length" type="lengthElemType"/>
+	<xs:element name="levelledPara" type="levelledParaElemType"/>
+	<xs:element name="levelledParaAlts" type="levelledParaAltsElemType"/>
+	<xs:element name="limit" type="limitElemType"/>
+	<xs:element name="limitRange" type="limitRangeElemType"/>
+	<xs:element name="limitRangeFrom" type="limitRangeFromElemType"/>
+	<xs:element name="limitRangeTo" type="limitRangeToElemType"/>
+	<xs:element name="limitType" type="limitTypeElemType"/>
+	<xs:element name="limitedPartNumber" type="limitedPartNumberElemType"/>
+	<xs:element name="listItem" type="listItemElemType"/>
+	<xs:element name="listItemDefinition" type="listItemDefinitionElemType"/>
+	<xs:element name="listItemTerm" type="listItemTermElemType"/>
+	<xs:element name="listOfChoices" type="listOfChoicesElemType"/>
+	<xs:element name="localFabricationMaterial" type="localFabricationMaterialElemType"/>
+	<xs:element name="locateAndRepair" type="locateAndRepairElemType"/>
+	<xs:element name="locateAndRepairLruItem" type="locateAndRepairLruItemElemType"/>
+	<xs:element name="locateAndRepairSruItem" type="locateAndRepairSruItemElemType"/>
+	<xs:element name="location" type="locationElemType"/>
+	<xs:element name="locationRcmd" type="locationRcmdElemType"/>
+	<xs:element name="locationRcmdSegment" type="locationRcmdSegmentElemType"/>
+	<xs:element name="logo" type="logoElemType"/>
+	<xs:element name="lowestAuthorizedLevel" type="lowestAuthorizedLevelElemType"/>
+	<xs:element name="lowestAuthorizedLevelGroup" type="lowestAuthorizedLevelGroupElemType"/>
+	<xs:element name="lru" type="lruElemType"/>
+	<xs:element name="lruItem" type="lruItemElemType"/>
+	<xs:element name="mainProcedure" type="mainProcedureElemType"/>
+	<xs:element name="maintAllocation" type="maintAllocationElemType"/>
+	<xs:element name="maintAllocationGroup" type="maintAllocationGroupElemType"/>
+	<xs:element name="maintFunction" type="maintFunctionElemType"/>
+	<xs:element name="maintLevel" type="maintLevelElemType"/>
+	<xs:element name="maintLevelGroup" type="maintLevelGroupElemType"/>
+	<xs:element name="maintPlanning" type="maintPlanningElemType"/>
+	<xs:element name="maintQualifier" type="maintQualifierElemType"/>
+	<xs:element name="manufacturerCode" type="manufacturerCodeElemType"/>
+	<xs:element name="mass" type="massElemType"/>
+	<xs:element name="materialSetRef" type="materialSetRefElemType"/>
+	<xs:element name="maxDiameter" type="maxDiameterElemType"/>
+	<xs:element name="maxHarnessSize" type="maxHarnessSizeElemType"/>
+	<xs:element name="maxTemperature" type="maxTemperatureElemType"/>
+	<xs:element name="mediaIdent" type="mediaIdentElemType"/>
+	<xs:element name="menu" type="menuElemType"/>
+	<xs:element name="menuChoice" type="menuChoiceElemType"/>
+	<xs:element name="message" type="messageElemType"/>
+	<xs:element name="messageAlts" type="messageAltsElemType"/>
+	<xs:element name="minDiameter" type="minDiameterElemType"/>
+	<xs:element name="minHarnessSize" type="minHarnessSizeElemType"/>
+	<xs:element name="minTemperature" type="minTemperatureElemType"/>
+	<xs:element name="modelName" type="modelNameElemType"/>
+	<xs:element name="modelVersion" type="modelVersionElemType"/>
+	<xs:element name="modification" type="modificationElemType"/>
+	<xs:element name="multimedia" type="multimediaElemType"/>
+	<xs:element name="multimediaAlts" type="multimediaAltsElemType"/>
+	<xs:element name="multimediaAltsIdent" type="multimediaAltsIdentElemType"/>
+	<xs:element name="multimediaIdent" type="multimediaIdentElemType"/>
+	<xs:element name="multimediaObject" type="multimediaObjectElemType"/>
+	<xs:element name="name" type="nameElemType"/>
+	<xs:element name="natoStockNumber" type="natoStockNumberElemType"/>
+	<xs:element name="nextHigherAssy" type="nextHigherAssyElemType"/>
+	<xs:element name="noAnswer" type="noAnswerElemType"/>
+	<xs:element name="noAssertions" type="noAssertionsElemType"/>
+	<xs:element name="noConds" type="noCondsElemType"/>
+	<xs:element name="noInfo" type="noInfoElemType"/>
+	<xs:element name="noReferences" type="noReferencesElemType"/>
+	<xs:element name="noSafety" type="noSafetyElemType"/>
+	<xs:element name="noSpares" type="noSparesElemType"/>
+	<xs:element name="noSupplies" type="noSuppliesElemType"/>
+	<xs:element name="noSupportEquips" type="noSupportEquipsElemType"/>
+	<xs:element name="noValue" type="emptyElemType"/>
+	<xs:element name="nonContextRule" type="nonContextRuleElemType"/>
+	<xs:element name="nonContextRules" type="nonContextRulesElemType"/>
+	<xs:element name="notIllustrated" type="notIllustratedElemType"/>
+	<xs:element name="notationName" type="notationNameElemType"/>
+	<xs:element name="notationRule" type="notationRuleElemType"/>
+	<xs:element name="notationRuleList" type="notationRuleListElemType"/>
+	<xs:element name="note" type="noteElemType"/>
+	<xs:element name="notePara" type="noteParaElemType"/>
+	<xs:element name="numberFunction" type="numberFunctionElemType"/>
+	<xs:element name="numberOfPages" type="xs:string"/>
+	<xs:element name="numberOperator" type="numberOperatorElemType"/>
+	<xs:element name="objectPath" type="objectPathElemType"/>
+	<xs:element name="objectUse" type="objectUseElemType"/>
+	<xs:element name="objectValue" type="objectValueElemType"/>
+	<xs:element name="observedFault" type="observedFaultElemType"/>
+	<xs:element name="observedFaultAlts" type="observedFaultAltsElemType"/>
+	<xs:element name="optionalPart" type="optionalPartElemType"/>
+	<xs:element name="originator" type="originatorElemType"/>
+	<xs:element name="otherItems" type="otherItemsElemType"/>
+	<xs:element name="otherPossibleCause" type="otherPossibleCauseElemType"/>
+	<xs:element name="outerDiameter" type="outerDiameterElemType"/>
+	<xs:element name="overLengthPartNumber" type="overLengthPartNumberElemType"/>
+	<xs:element name="packaging" type="packagingElemType"/>
+	<xs:element name="para" type="paraElemType"/>
+	<xs:element name="parameter" type="parameterElemType"/>
+	<xs:element name="partAndSerialNumber" type="partAndSerialNumberElemType"/>
+	<xs:element name="partIdent" type="partIdentElemType">
+		<xs:unique name="onePartSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@partNumberValue"/>
+			<xs:field xpath="@manufacturerCodeValue"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="partKeyword" type="partKeywordElemType"/>
+	<xs:element name="partLocationSegment" type="partLocationSegmentElemType"/>
+	<xs:element name="partNumber" type="partNumberElemType"/>
+	<xs:element name="partRef" type="partRefElemType"/>
+	<xs:element name="partRefGroup" type="partRefGroupElemType"/>
+	<xs:element name="partRepository" type="partRepositoryElemType"/>
+	<xs:element name="partSegment" type="partSegmentElemType"/>
+	<xs:element name="partSpec" type="partSpecElemType"/>
+	<xs:element name="partUsage" type="partUsageElemType"/>
+	<xs:element name="person" type="personElemType"/>
+	<xs:element name="personCategory" type="personCategoryElemType"/>
+	<xs:element name="personSkill" type="personSkillElemType"/>
+	<xs:element name="personnel" type="personnelElemType"/>
+	<xs:element name="phoneNumber" type="phoneNumberElemType"/>
+	<xs:element name="physicalChemicalDescr" type="xs:string"/>
+	<xs:element name="physicalSecurityPilferageCode" type="physicalSecurityPilferageCodeElemType"/>
+	<xs:element name="placardText" type="xs:string"/>
+	<xs:element name="pmAddress" type="pmAddressElemType"/>
+	<xs:element name="pmAddressItems" type="pmAddressItemsElemType"/>
+	<xs:element name="pmCode" type="pmCodeElemType"/>
+	<xs:element name="pmEntry" type="pmEntryElemType"/>
+	<xs:element name="pmIdent" type="pmIdentElemType"/>
+	<xs:element name="pmRef" type="pmRefElemType"/>
+	<xs:element name="pmRefAddressItems" type="pmRefAddressItemsElemType"/>
+	<xs:element name="pmRefGroup" type="pmRefGroupElemType"/>
+	<xs:element name="pmRefIdent" type="pmRefIdentElemType"/>
+	<xs:element name="pmStatus" type="pmStatusElemType"/>
+	<xs:element name="policyStatement" type="policyStatementElemType"/>
+	<xs:element name="positionOnNextHigherAssy" type="positionOnNextHigherAssyElemType"/>
+	<xs:element name="possibleCauseGroup" type="possibleCauseGroupElemType"/>
+	<xs:element name="preferredSparePart" type="preferredSparePartElemType"/>
+	<xs:element name="preliminaryRqmts" type="preliminaryRqmtsElemType"/>
+	<xs:element name="preparationInfo" type="preparationInfoElemType"/>
+	<xs:element name="proceduralStep" type="proceduralStepElemType"/>
+	<xs:element name="proceduralStepAlts" type="proceduralStepAltsElemType"/>
+	<xs:element name="procedure" type="procedureElemType"/>
+	<xs:element name="process" type="processElemType"/>
+	<xs:element name="processCategory" type="xs:string"/>
+	<xs:element name="procurementData" type="procurementDataElemType"/>
+	<xs:element name="product" type="productElemType"/>
+	<xs:element name="productAndModel" type="productAndModelElemType"/>
+	<xs:element name="productAttribute" type="productAttributeElemType"/>
+	<xs:element name="productAttributeList" type="productAttributeListElemType"/>
+	<xs:element name="productConfiguration" type="productConfigurationElemType"/>
+	<xs:element name="productCrossRefTable" type="productCrossRefTableElemType"/>
+	<xs:element name="productCrossRefTableRef" type="productCrossRefTableRefElemType"/>
+	<xs:element name="productDefinitionRelationship" type="productDefinitionRelationshipElemType"/>
+	<xs:element name="productIllustration" type="productIllustrationElemType"/>
+	<xs:element name="productIntroName" type="productIntroNameElemType"/>
+	<xs:element name="productItem" type="productItemElemType"/>
+	<xs:element name="productModel" type="productModelElemType"/>
+	<xs:element name="productName" type="productNameElemType"/>
+	<xs:element name="productSafety" type="productSafetyElemType"/>
+	<xs:element name="productionMaintData" type="productionMaintDataElemType"/>
+	<xs:element name="prompt" type="promptElemType"/>
+	<xs:element name="pubMedia" type="pubMediaElemType"/>
+	<xs:element name="publisherLogo" type="logoElemType"/>
+	<xs:element name="pushButton" type="pushButtonElemType"/>
+	<xs:element name="qualityAssurance" type="qualityAssuranceElemType"/>
+	<xs:element name="quantity" type="quantityElemType"/>
+	<xs:element name="quantityGroup" type="quantityGroupElemType"/>
+	<xs:element name="quantityPerNextHigherAssy" type="quantityPerNextHigherAssyElemType"/>
+	<xs:element name="quantityTolerance" type="quantityToleranceElemType"/>
+	<xs:element name="quantityValue" type="quantityValueElemType"/>
+	<xs:element name="randomList" type="randomListElemType"/>
+	<xs:element name="rcmd" type="rcmdElemType"/>
+	<xs:element name="rcmdQuantity" type="rcmdQuantityElemType"/>
+	<xs:element name="reasonForAmendment" type="reasonForAmendmentElemType"/>
+	<xs:element name="reasonForSelection" type="reasonForSelectionElemType"/>
+	<xs:element name="reasonForUpdate" type="reasonForUpdateElemType"/>
+	<xs:element name="receiveByName" type="receiveByNameElemType"/>
+	<xs:element name="receiveByPosition" type="receiveByPositionElemType"/>
+	<xs:element name="receiveValue" type="receiveValueElemType"/>
+	<xs:element name="reducedListItemPara" type="reducedListItemParaElemType"/>
+	<xs:element name="reducedPara" type="reducedParaElemType"/>
+	<xs:element name="reducedRandomList" type="reducedRandomListElemType"/>
+	<xs:element name="reducedRandomListItem" type="reducedRandomListItemElemType"/>
+	<xs:element name="referTo" type="referToElemType"/>
+	<xs:element name="referencedApplicGroup" type="referencedApplicGroupElemType"/>
+	<xs:element name="referencedApplicGroupRef" type="referencedApplicGroupRefElemType"/>
+	<xs:element name="refs" type="refsElemType"/>
+	<xs:element name="reinstateObject" type="insertObjectGenericElemType"/>
+	<xs:element name="reinstateObjectGroup" type="reinstateObjectGroupElemType"/>
+	<xs:element name="relatedTask" type="relatedTaskElemType"/>
+	<xs:element name="remarkCode" type="remarkCodeElemType"/>
+	<xs:element name="remarks" type="remarksElemType"/>
+	<xs:element name="remarksGroup" type="remarksGroupElemType"/>
+	<xs:element name="remarksList" type="remarksListElemType"/>
+	<xs:element name="remarksRefs" type="remarksRefsElemType"/>
+	<xs:element name="removalOrInstallationQuantity" type="removalOrInstallationQuantityElemType"/>
+	<xs:element name="repair" type="repairElemType"/>
+	<xs:element name="replaceObject" type="replaceObjectElemType"/>
+	<xs:element name="replaceObjectGroup" type="replaceObjectGroupElemType"/>
+	<xs:element name="replacedBy" type="replacedByElemType"/>
+	<xs:element name="replacementCond" type="replacementCondElemType"/>
+	<xs:element name="repositorySourceDmIdent" type="sourceDmIdentGenericElemType"/>
+	<xs:element name="reqCond" type="reqCondElemType"/>
+	<xs:element name="reqCondCircuitBreaker" type="reqCondCircuitBreakerElemType"/>
+	<xs:element name="reqCondDm" type="reqCondDmElemType"/>
+	<xs:element name="reqCondExternalPub" type="reqCondExternalPubElemType"/>
+	<xs:element name="reqCondGroup" type="reqCondGroupElemType"/>
+	<xs:element name="reqCondNoRef" type="reqCondNoRefElemType"/>
+	<xs:element name="reqCondPm" type="reqCondPmElemType"/>
+	<xs:element name="reqPersons" type="reqPersonsElemType"/>
+	<xs:element name="reqQuantity" type="reqQuantityElemType"/>
+	<xs:element name="reqSafety" type="reqSafetyElemType"/>
+	<xs:element name="reqSpares" type="reqSparesElemType"/>
+	<xs:element name="reqSupplies" type="reqSuppliesElemType"/>
+	<xs:element name="reqSupportEquips" type="reqSupportEquipsElemType"/>
+	<xs:element name="reqTechInfo" type="reqTechInfoElemType"/>
+	<xs:element name="reqTechInfoGroup" type="reqTechInfoGroupElemType"/>
+	<xs:element name="resistance" type="resistanceElemType"/>
+	<xs:element name="response" type="responseElemType"/>
+	<xs:element name="responsiblePartnerCompany" type="responsiblePartnerCompanyElemType"/>
+	<xs:element name="restrictedOperationNote" type="restrictedOperationNoteElemType"/>
+	<xs:element name="restrictionInfo" type="restrictionInfoElemType"/>
+	<xs:element name="restrictionInstructions" type="restrictionInstructionsElemType"/>
+	<xs:element name="retrofit" type="retrofitElemType"/>
+	<xs:element name="routing" type="routingElemType"/>
+	<xs:element name="row" type="rowElemType"/>
+	<xs:element name="rqmtSource" type="rqmtSourceElemType"/>
+	<xs:element name="safetyCategory" type="safetyCategoryElemType"/>
+	<xs:element name="safetyRqmts" type="safetyRqmtsElemType"/>
+	<xs:element name="sampling" type="samplingElemType"/>
+	<xs:element name="sb" type="sbElemType"/>
+	<xs:element name="sbAccomplishmentInstructions" type="sbAccomplishmentInstructionsElemType"/>
+	<xs:element name="sbAccomplishmentLimit" type="sbAccomplishmentLimitElemType"/>
+	<xs:element name="sbAdditionalInfo" type="sbTopicSetGenericElemType"/>
+	<xs:element name="sbAlteredToPart" type="sbAlteredToPartElemType"/>
+	<xs:element name="sbAlteredToPartDescr" type="sbAlteredToPartDescrElemType"/>
+	<xs:element name="sbApproval" type="sbApprovalElemType"/>
+	<xs:element name="sbApprovedDm" type="sbApprovedDmElemType"/>
+	<xs:element name="sbAvailability" type="sbAvailabilityElemType"/>
+	<xs:element name="sbCompliance" type="sbComplianceElemType"/>
+	<xs:element name="sbConcurrentSbInfo" type="sbConcurrentSbInfoElemType"/>
+	<xs:element name="sbConcurrentSbList" type="sbConcurrentSbListElemType"/>
+	<xs:element name="sbCondition" type="sbRefGenericElemType"/>
+	<xs:element name="sbDrawingRef" type="sbDrawingRefElemType"/>
+	<xs:element name="sbDuration" type="sbTimeGenericElemType"/>
+	<xs:element name="sbEstimatedTime" type="sbTimeGenericElemType"/>
+	<xs:element name="sbExternalSpareSet" type="sbExternalMaterialSetGenericElemType"/>
+	<xs:element name="sbExternalSupplySet" type="sbExternalMaterialSetGenericElemType"/>
+	<xs:element name="sbExternalSupportEquipSet" type="sbExternalMaterialSetGenericElemType"/>
+	<xs:element name="sbImpact" type="sbImpactElemType"/>
+	<xs:element name="sbImpactList" type="sbImpactListElemType"/>
+	<xs:element name="sbIndividualRemovedSpare" type="sbIndividualRemovedSpareElemType"/>
+	<xs:element name="sbIndividualSpare" type="sbIndividualSpareElemType"/>
+	<xs:element name="sbIndividualSupply" type="sbIndividualSupplyElemType"/>
+	<xs:element name="sbIndividualSupportEquip" type="sbIndividualSupportEquipElemType"/>
+	<xs:element name="sbIndustrySupport" type="sbIndustrySupportElemType"/>
+	<xs:element name="sbInstructionRef" type="sbRefGenericElemType"/>
+	<xs:element name="sbInterchange" type="sbInterchangeElemType"/>
+	<xs:element name="sbLimit" type="sbLimitElemType"/>
+	<xs:element name="sbManagementInfo" type="sbManagementInfoElemType"/>
+	<xs:element name="sbMaterialDescr" type="sbMaterialDescrElemType"/>
+	<xs:element name="sbMaterialInfo" type="sbMaterialInfoElemType"/>
+	<xs:element name="sbMaterialInfoContent" type="sbMaterialInfoContentElemType"/>
+	<xs:element name="sbMaterialSet" type="sbMaterialSetElemType"/>
+	<xs:element name="sbMaterialSetList" type="sbMaterialSetListElemType"/>
+	<xs:element name="sbMaterialSetRef" type="sbMaterialSetRefElemType"/>
+	<xs:element name="sbOriginalIssueDate" type="sbOriginalIssueDateElemType"/>
+	<xs:element name="sbPlanningInfo" type="sbTopicSetGenericElemType"/>
+	<xs:element name="sbPriceInfo" type="sbPriceInfoElemType"/>
+	<xs:element name="sbProcurementAddress" type="sbProcurementAddressElemType"/>
+	<xs:element name="sbProcurementInfo" type="sbProcurementInfoElemType"/>
+	<xs:element name="sbProductModification" type="sbProductModificationElemType"/>
+	<xs:element name="sbProductModificationList" type="sbProductModificationListElemType"/>
+	<xs:element name="sbRemovedSpareDescr" type="sbRemovedSpareDescrElemType"/>
+	<xs:element name="sbRemovedSpareSet" type="sbRemovedSpareSetElemType"/>
+	<xs:element name="sbRemovedSparesList" type="sbRemovedSparesListElemType"/>
+	<xs:element name="sbReplacement" type="sbReplacementElemType"/>
+	<xs:element name="sbReplacementSb" type="sbReplacementSbElemType"/>
+	<xs:element name="sbRevisionInfo" type="sbTopicSetGenericElemType"/>
+	<xs:element name="sbSpareSet" type="sbSpareSetElemType"/>
+	<xs:element name="sbSparesList" type="sbSparesListElemType"/>
+	<xs:element name="sbSummary" type="sbTopicSetGenericElemType"/>
+	<xs:element name="sbSuppliesList" type="sbSuppliesListElemType"/>
+	<xs:element name="sbSupplySet" type="sbSupplySetElemType"/>
+	<xs:element name="sbSupportEquipSet" type="sbSupportEquipSetElemType"/>
+	<xs:element name="sbSupportEquipsList" type="sbSupportEquipsListElemType"/>
+	<xs:element name="sbTaskType" type="sbTaskTypeElemType"/>
+	<xs:element name="sbTimeAssessment" type="sbTimeAssessmentElemType"/>
+	<xs:element name="sbTimeCompliance" type="sbTimeComplianceElemType"/>
+	<xs:element name="sbTimeInfo" type="sbTimeInfoElemType"/>
+	<xs:element name="sbTopic" type="sbTopicElemType"/>
+	<xs:element name="sbTopicContent" type="descriptionElemType"/>
+	<xs:element name="scoContent" type="scoContentElemType"/>
+	<xs:element name="scoEntry" type="scoEntryElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused scoEntryCode element; 20171011 JS -->
+	<!-- CPF 2015-012EPWG R1: deleted unused scoEntryContent element; 20171011 JS -->
+	<xs:element name="scoEntryItem" type="scoEntryItemElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused scoMedia element; 20171011 JS -->
+	<xs:element name="scormContentPackageAddress" type="scormContentPackageAddressElemType"/>
+	<xs:element name="scormContentPackageAddressItems" type="scormContentPackageAddressItemsElemType"/>
+	<xs:element name="scormContentPackageCode" type="scormContentPackageCodeElemType"/>
+	<xs:element name="scormContentPackageIdent" type="scormContentPackageIdentElemType"/>
+	<xs:element name="scormContentPackageMedia" type="scormContentPackageMediaElemType"/>
+	<!-- CPF 2014-015AA R1: added new element scormContentPackageRef; 20180711 JS -->
+	<xs:element name="scormContentPackageRef" type="scormContentPackageRefElemType"/>
+	<!-- CPF 2014-015AA R1: added new element scormContentPackageRefAddressItems; 20180711 JS -->
+	<xs:element name="scormContentPackageRefAddressItems" type="scormContentPackageRefAddressItemsElemType"/>
+	<!-- CPF 2014-015AA R1: added new element scormContentPackageRefIdent; 20180711 JS -->
+	<xs:element name="scormContentPackageRefIdent" type="scormContentPackageRefIdentElemType"/>
+	<xs:element name="scormContentPackageStatus" type="scormContentPackageStatusElemType"/>
+	<xs:element name="screen" type="screenElemType"/>
+	<xs:element name="screenGroup" type="screenGroupElemType"/>
+	<xs:element name="secondVerification" type="secondVerificationElemType"/>
+	<xs:element name="security" type="securityElemType"/>
+	<xs:element name="selectOrManufacture" type="selectOrManufactureElemType"/>
+	<xs:element name="selectOrManufactureFromIdent" type="selectOrManufactureFromIdentElemType"/>
+	<xs:element name="send" type="sendElemType"/>
+	<xs:element name="sequentialList" type="sequentialListElemType"/>
+	<xs:element name="serialNumber" type="serialNumberElemType"/>
+	<xs:element name="service" type="serviceElemType"/>
+	<xs:element name="setFunction" type="setFunctionElemType"/>
+	<xs:element name="setOperator" type="setOperatorElemType"/>
+	<xs:element name="setValue" type="setValueElemType"/>
+	<xs:element name="shelfLife" type="shelfLifeElemType"/>
+	<xs:element name="shippingInfo" type="shippingInfoElemType"/>
+	<xs:element name="shortDescr" type="shortDescrElemType"/>
+	<xs:element name="shortExternalPubTitle" type="shortExternalPubTitleElemType"/>
+	<xs:element name="shrinkSleeve" type="shrinkSleeveElemType"/>
+	<xs:element name="shrinkSleeveGroup" type="shrinkSleeveGroupElemType"/>
+	<xs:element name="siblingPlugIdent" type="siblingPlugIdentElemType"/>
+	<xs:element name="simplePara" type="simpleParaElemType"/>
+	<xs:element name="simpleRemark" type="simpleRemarkElemType"/>
+	<xs:element name="size" type="sizeElemType"/>
+	<xs:element name="skillLevel" type="skillLevelElemType"/>
+	<xs:element name="sleeve" type="sleeveElemType"/>
+	<xs:element name="sleeveDiameter" type="sleeveDiameterElemType"/>
+	<xs:element name="sleeveGroup" type="sleeveGroupElemType"/>
+	<xs:element name="snsAssy" type="snsAssyElemType"/>
+	<xs:element name="snsDescr" type="snsDescrElemType"/>
+	<xs:element name="snsRules" type="snsRulesElemType"/>
+	<xs:element name="snsSubSubSystem" type="snsSubSubSystemElemType"/>
+	<xs:element name="snsSubSystem" type="snsSubSystemElemType"/>
+	<xs:element name="snsSystem" type="snsSystemElemType"/>
+	<xs:element name="solderSleeve" type="solderSleeveElemType"/>
+	<xs:element name="solderSleeveGroup" type="solderSleeveGroupElemType"/>
+	<xs:element name="softwareClassification" type="softwareClassificationElemType"/>
+	<xs:element name="softwareCustomizationStatus" type="softwareCustomizationStatusElemType"/>
+	<xs:element name="sourceDmIdent" type="sourceDmIdentGenericElemType"/>
+	<xs:element name="sourceMaintRecoverability" type="sourceMaintRecoverabilityElemType"/>
+	<xs:element name="sourcePmIdent" type="sourcePmIdentElemType"/>
+	<!-- CPF 2015-012EPWG R1: deleted unused sourceScoIdent element; 20171011 JS -->
+	<xs:element name="sourceScormContentPackageIdent" type="sourceScormContentPackageIdentElemType"/>
+	<xs:element name="sourceType" type="sourceTypeElemType"/>
+	<xs:element name="sourcingType" type="sourcingTypeElemType"/>
+	<xs:element name="spanspec" type="spanspecElemType"/>
+	<xs:element name="spareDescr" type="spareDescrElemType"/>
+	<xs:element name="spareDescrGroup" type="spareDescrGroupElemType"/>
+	<xs:element name="sparePartClass" type="sparePartClassElemType"/>
+	<xs:element name="specDocument" type="specDocumentElemType"/>
+	<xs:element name="specGroup" type="specGroupElemType"/>
+	<xs:element name="specialStorage" type="specialStorageElemType"/>
+	<xs:element name="sru" type="sruElemType"/>
+	<xs:element name="sruItem" type="sruItemElemType"/>
+	<xs:element name="standardPartGroup" type="standardPartGroupElemType"/>
+	<xs:element name="stringFunction" type="stringFunctionElemType"/>
+	<xs:element name="stringOperator" type="stringOperatorElemType"/>
+	<xs:element name="structureObjectRule" type="structureObjectRuleElemType"/>
+	<xs:element name="structureObjectRuleGroup" type="structureObjectRuleGroupElemType"/>
+	<xs:element name="subCrewDrill" type="subCrewDrillElemType"/>
+	<xs:element name="subStringFunction" type="subStringFunctionElemType"/>
+	<xs:element name="subjectIdent" type="subjectIdentElemType"/>
+	<!-- CPF 2017-017DE R5: removed subjectVariantSegmentElemType per SC 33.01; 20180525 JS -->
+	<xs:element name="supersedure" type="supersedureElemType"/>
+	<xs:element name="supervisorLevel" type="supervisorLevelElemType"/>
+	<xs:element name="supplyClassification" type="xs:string"/>
+	<xs:element name="supplyDescr" type="supplyDescrElemType"/>
+	<xs:element name="supplyDescrGroup" type="supplyDescrGroupElemType"/>
+	<xs:element name="supplyIdent" type="supplyIdentElemType">
+		<xs:unique name="oneSupplySpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@supplyNumber"/>
+			<xs:field xpath="@supplyNumberType"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="supplyRef" type="supplyRefElemType"/>
+	<xs:element name="supplyRepository" type="supplyRepositoryElemType"/>
+	<xs:element name="supplyRqmt" type="supplyRqmtElemType"/>
+	<xs:element name="supplyRqmtAltIdent" type="supplyRqmtAltIdentElemType"/>
+	<xs:element name="supplyRqmtAltStatus" type="supplyRqmtAltStatusElemType"/>
+	<xs:element name="supplyRqmtAlts" type="supplyRqmtAltsElemType"/>
+	<xs:element name="supplyRqmtIdent" type="supplyRqmtIdentElemType">
+		<xs:unique name="oneSupplyRqmtSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@supplyRqmtNumber"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="supplyRqmtRef" type="supplyRqmtRefElemType"/>
+	<xs:element name="supplyRqmtRepository" type="supplyRqmtRepositoryElemType"/>
+	<xs:element name="supplyRqmtSpec" type="supplyRqmtSpecElemType"/>
+	<xs:element name="supplyRqmtStatus" type="supplyRqmtStatusElemType"/>
+	<xs:element name="supplySet" type="supplySetElemType"/>
+	<xs:element name="supplySetGroup" type="supplySetGroupElemType"/>
+	<xs:element name="supplySpec" type="supplySpecElemType"/>
+	<xs:element name="supportEquipDescr" type="supportEquipDescrElemType"/>
+	<xs:element name="supportEquipDescrGroup" type="supportEquipDescrGroupElemType"/>
+	<xs:element name="symbol" type="symbolElemType"/>
+	<xs:element name="systemBreakdownCode" type="systemBreakdownCodeElemType"/>
+	<xs:element name="systemIdent" type="systemIdentElemType"/>
+	<xs:element name="systemLocation" type="systemLocationElemType"/>
+	<xs:element name="systemName" type="systemNameElemType"/>
+	<xs:element name="systemPosition" type="systemPositionElemType"/>
+	<xs:element name="table" type="tableElemType"/>
+	<xs:element name="targetDmIssueInfo" type="issueInfoGenericElemType"/>
+	<xs:element name="targetDmStatus" type="dmStatusGenericElemType"/>
+	<xs:element name="task" type="taskElemType"/>
+	<xs:element name="taskCategory" type="taskCategoryElemType"/>
+	<xs:element name="taskDefinition" type="taskDefinitionElemType"/>
+	<xs:element name="taskDefinitionAlts" type="taskDefinitionAltsElemType"/>
+	<xs:element name="taskDescr" type="taskDescrElemType"/>
+	<xs:element name="taskDuration" type="taskDurationElemType"/>
+	<xs:element name="taskGroup" type="taskGroupElemType"/>
+	<xs:element name="taskItem" type="taskItemElemType"/>
+	<xs:element name="taskMarker" type="taskMarkerElemType"/>
+	<xs:element name="tbody" type="tbodyElemType"/>
+	<xs:element name="techData" type="techDataElemType"/>
+	<xs:element name="techStandard" type="techStandardElemType"/>
+	<xs:element name="temperature" type="temperatureElemType"/>
+	<xs:element name="termTitle" type="titleElemType"/>
+	<xs:element name="testDescr" type="testDescrElemType"/>
+	<xs:element name="testParameters" type="testParametersElemType"/>
+	<xs:element name="testProcedure" type="testProcedureElemType"/>
+	<xs:element name="tfoot" type="tfootElemType"/>
+	<xs:element name="tgroup" type="tgroupElemType"/>
+	<xs:element name="thead" type="theadElemType"/>
+	<xs:element name="threshold" type="thresholdElemType"/>
+	<xs:element name="thresholdInterval" type="thresholdIntervalElemType"/>
+	<xs:element name="thresholdValue" type="xs:string"/>
+	<xs:element name="thumbTabText" type="thumbTabTextElemType"/>
+	<xs:element name="timeLimit" type="timeLimitElemType"/>
+	<xs:element name="timeLimitCategory" type="timeLimitCategoryElemType"/>
+	<xs:element name="timeLimitInfo" type="timeLimitInfoElemType"/>
+	<xs:element name="title" type="titleElemType"/>
+	<xs:element name="toEquip" type="toEquipElemType"/>
+	<xs:element name="tocEntry" type="tocEntryElemType"/>
+	<xs:element name="tocList" type="tocListElemType"/>
+	<xs:element name="tolerance" type="toleranceElemType"/>
+	<xs:element name="tool" type="toolElemType"/>
+	<xs:element name="toolAlts" type="toolAltsElemType"/>
+	<xs:element name="toolIdent" type="toolIdentElemType">
+		<xs:unique name="oneToolSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@toolNumber"/>
+			<xs:field xpath="@manufacturerCodeValue"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="toolRef" type="toolRefElemType"/>
+	<xs:element name="toolRefGroup" type="toolRefGroupElemType"/>
+	<xs:element name="toolRepository" type="toolRepositoryElemType"/>
+	<xs:element name="toolSpec" type="toolSpecElemType"/>
+	<xs:element name="toolsList" type="toolsListElemType"/>
+	<xs:element name="toolsListCode" type="toolsListCodeElemType"/>
+	<xs:element name="toolsListGroup" type="toolsListGroupElemType"/>
+	<xs:element name="toolsRefs" type="toolsRefsElemType"/>
+	<xs:element name="totalQuantity" type="totalQuantityElemType"/>
+	<xs:element name="trade" type="tradeElemType"/>
+	<xs:element name="trainingStep" type="trainingStepElemType"/>
+	<xs:element name="transport" type="transportElemType"/>
+	<xs:element name="transverseLink" type="transverseLinkElemType"/>
+	<xs:element name="trigger" type="triggerElemType"/>
+	<xs:element name="trueValue" type="emptyElemType"/>
+	<xs:element name="twist" type="twistElemType"/>
+	<xs:element name="twistGroup" type="twistGroupElemType"/>
+	<xs:element name="typeDesignation" type="typeDesignationElemType"/>
+	<xs:element name="unitOfIssue" type="unitOfIssueElemType"/>
+	<xs:element name="unitOfIssueQualificationSegment" type="unitOfIssueQualificationSegmentElemType"/>
+	<xs:element name="unverified" type="unverifiedElemType"/>
+	<xs:element name="update" type="updateElemType"/>
+	<xs:element name="updateAddress" type="updateAddressElemType"/>
+	<xs:element name="updateCode" type="updateCodeElemType"/>
+	<xs:element name="updateIdent" type="updateIdentElemType"/>
+	<xs:element name="updateIdentAndStatusSection" type="updateIdentAndStatusSectionElemType"/>
+	<xs:element name="updateStatus" type="updateStatusElemType"/>
+	<xs:element name="usableOnCodeAssy" type="usableOnCodeAssyElemType"/>
+	<xs:element name="usableOnCodeEquip" type="usableOnCodeEquipElemType"/>
+	<xs:element name="usage" type="usageElemType"/>
+	<xs:element name="userEntry" type="userEntryElemType"/>
+	<xs:element name="validate" type="validateElemType"/>
+	<xs:element name="variable" type="variableElemType"/>
+	<xs:element name="variableDeclarations" type="variableDeclarationsElemType"/>
+	<xs:element name="variablePostSet" type="variablePostSetElemType"/>
+	<xs:element name="variablePreSet" type="variablePreSetElemType"/>
+	<xs:element name="variableRef" type="variableRefElemType"/>
+	<xs:element name="verbatimText" type="verbatimTextElemType"/>
+	<xs:element name="viewLocation" type="viewLocationElemType"/>
+	<xs:element name="voltage" type="voltageElemType"/>
+	<xs:element name="wallThickness" type="wallThicknessElemType"/>
+	<xs:element name="warning" type="warningElemType"/>
+	<xs:element name="warningAndCautionPara" type="warningAndCautionParaElemType"/>
+	<xs:element name="warningIdent" type="warningIdentElemType">
+		<xs:unique name="oneWarningSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@warningIdentNumber"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="warningMalfunction" type="assocWarningMalfunctionElemType"/>
+	<xs:element name="warningMalfunctionAlts" type="warningMalfunctionAltsElemType"/>
+	<xs:element name="warningRef" type="warningRefElemType"/>
+	<xs:element name="warningRepository" type="warningRepositoryElemType"/>
+	<xs:element name="warningSpec" type="warningSpecElemType"/>
+	<xs:element name="warningsAndCautions" type="warningsAndCautionsElemType"/>
+	<xs:element name="warningsAndCautionsRef" type="warningsAndCautionsRefElemType"/>
+	<xs:element name="wire" type="wireElemType"/>
+	<xs:element name="wireAlts" type="wireAltsElemType"/>
+	<xs:element name="wireCode" type="wireCodeElemType"/>
+	<xs:element name="wireConnection" type="wireConnectionElemType"/>
+	<xs:element name="wireConnectionCode" type="wireConnectionCodeElemType"/>
+	<xs:element name="wireGauge" type="wireGaugeElemType"/>
+	<xs:element name="wireGroup" type="wireGroupElemType"/>
+	<xs:element name="wireIdent" type="wireIdentElemType"/>
+	<xs:element name="wireInfo" type="wireInfoElemType"/>
+	<xs:element name="wireInstallationCode" type="wireInstallationCodeElemType"/>
+	<xs:element name="wireMaterial" type="wireMaterialElemType"/>
+	<xs:element name="wireMaterialGroup" type="wireMaterialGroupElemType"/>
+	<xs:element name="wiringData" type="wiringDataElemType"/>
+	<xs:element name="wiringFields" type="wiringFieldsElemType"/>
+	<xs:element name="wiringPossibleCause" type="wiringPossibleCauseElemType"/>
+	<xs:element name="wiringPossibleCauseFrom" type="wiringPossibleCauseFromElemType"/>
+	<xs:element name="wiringPossibleCauseTo" type="wiringPossibleCauseToElemType"/>
+	<xs:element name="workAreaLocationGroup" type="workAreaLocationGroupElemType"/>
+	<xs:element name="workLocation" type="workLocationElemType"/>
+	<xs:element name="yesAnswer" type="yesAnswerElemType"/>
+	<xs:element name="yesNoAnswer" type="yesNoAnswerElemType"/>
+	<xs:element name="zone" type="zoneElemType"/>
+	<xs:element name="zoneAlts" type="zoneAltsElemType"/>
+	<xs:element name="zoneGroup" type="zoneGroupElemType"/>
+	<xs:element name="zoneIdent" type="zoneIdentElemType">
+		<xs:unique name="oneZoneSpecId">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@zoneNumber"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="zoneRef" type="zoneRefElemType"/>
+	<xs:element name="zoneRefGroup" type="zoneRefGroupElemType"/>
+	<xs:element name="zoneRepository" type="zoneRepositoryElemType"/>
+	<xs:element name="zoneSide" type="zoneSideElemType"/>
+	<xs:element name="zoneSpec" type="zoneSpecElemType"/>
+	<xs:element name="imfIdentAndStatusSection" type="imfIdentAndStatusSectionElemType"/>
+	<xs:element name="imfAddress" type="imfAddressElemType"/>
+	<xs:element name="imfAddressItems" type="imfAddressItemsElemType"/>
+	<xs:element name="imfCode" type="imfCodeElemType"/>
+	<xs:element name="imfContent" type="imfContentElemType"/>
+	<xs:element name="imfIdent" type="imfIdentElemType"/>
+	<xs:element name="imfStatus" type="imfStatusElemType"/>
+	<xs:element name="legacyIdentGroup" type="legacyIdentGroupElemType"/>
+	<xs:element name="legacyIdent" type="legacyIdentElemType"/>
+	<xs:element name="icnKeywordGroup" type="icnKeywordGroupElemType"/>
+	<xs:element name="icnTitle" type="icnTitleElemType"/>
+	<xs:element name="icnVariation" type="icnVariationElemType"/>
+	<xs:element name="icnSupportingFiles" type="icnSupportingFilesElemType"/>
+	<xs:element name="icnSourceFiles" type="icnSourceFilesElemType"/>
+	<xs:element name="icnResourceFiles" type="icnResourceFilesElemType"/>
+	<xs:element name="icnSupportingFilesDescr" type="icnSupportingFilesDescrElemType"/>
+	<xs:element name="icnContents" type="icnContentsElemType"/>
+	<xs:element name="icnObjectGroup" type="icnObjectGroupElemType"/>
+	<xs:element name="icnObject" type="icnObjectElemType"/>
+	<xs:element name="icnInfoItemGroup" type="icnInfoItemGroupElemType"/>
+	<xs:element name="icnInfoItem" type="icnInfoItemElemType"/>
+	<xs:element name="techName" type="techNameElemType"/>
+	<xs:element name="infoName" type="infoNameElemType"/>
+	<!-- CPF 2011-009DE R3a: added new element infoNameVariant; 20171026 JS -->
+	<xs:element name="infoNameVariant" type="infoNameElemType"/>
+	<xs:element name="workArea" type="workAreaElemType"/>
+	<xs:element name="shortName" type="shortNameElemType"/>
+	<xs:element name="descr" type="descrElemType"/>
+	<xs:element name="brDoc" type="brDocElemType"/>
+	<xs:element name="brLevelledPara" type="brLevelledParaElemType"/>
+	<xs:element name="brPara" type="brParaElemType"/>
+	<xs:element name="brRelatedTo" type="brRelatedToElemType"/>
+	<xs:element name="brDecisionPointContent" type="brDecisionPointContentElemType"/>
+	<xs:element name="brDecision" type="brDecisionElemType"/>
+	<xs:element name="brDecisionText" type="brDecisionTextElemType"/>
+	<xs:element name="brDecisionPending" type="brDecisionPendingElemType"/>
+	<xs:element name="brDecisionExplanation" type="brDecisionExplanationElemType"/>
+	<xs:element name="brDecisionPointText" type="brDecisionPointTextElemType"/>
+	<xs:element name="brDecisionPointExplanation" type="brDecisionPointExplanationElemType"/>
+	<xs:element name="brAudit" type="brAuditElemType"/>
+	<xs:element name="brAction" type="brActionElemType"/>
+	<xs:element name="brCurrentStatus" type="brCurrentStatusElemType"/>
+	<xs:element name="brRequiredDate" type="brRequiredDateElemType"/>
+	<xs:element name="brStatusDate" type="brStatusDateElemType"/>
+	<xs:element name="s1000dSchemas" type="s1000dSchemasElemType"/>
+	<xs:element name="sourceDocRef" type="sourceDocRefElemType"/>
+	<xs:element name="brCategoryGroup" type="brCategoryGroupElemType"/>
+	<xs:element name="brCategory" type="brCategoryElemType"/>
+	<xs:element name="brCategoryDescription" type="brCategoryDescriptionElemType"/>
+	<xs:element name="configAttributes" type="configAttributesElemType"/>
+	<xs:element name="brDecisionPointValueGroup" type="brDecisionPointValueGroupElemType"/>
+	<xs:element name="brDecisionPointValue" type="brDecisionPointValueElemType"/>
+	<xs:element name="brDecisionValueGroup" type="brDecisionValueGroupElemType"/>
+	<xs:element name="brDecisionValue" type="brDecisionValueElemType"/>
+	<!-- CPF 2017-029BRWG R7: added new element type brDecisionPointRef; 20190315 JS -->
+	<xs:element name="brDecisionPointRef" type="brDecisionPointRefElemType"/>
+	<xs:element name="example" type="exampleElemType"/>
+	<xs:element name="markupExample" type="markupExampleElemType"/>
+	<xs:element name="narrativeExample" type="narrativeExampleElemType"/>
+	<xs:element name="simpleRefPara" type="simpleRefParaElemType"/>
+	<xs:element name="derivativeClassification" type="derivativeClassificationElemType"/>
+	<xs:element name="classificationActionGroup" type="classificationActionGroupElemType"/>
+	<xs:element name="classificationAction" type="classificationActionElemType"/>
+	<xs:element name="valueAfterAction" type="valueAfterActionElemType"/>
+</xs:schema>

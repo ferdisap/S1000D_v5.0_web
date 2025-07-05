@@ -1,0 +1,130 @@
+<html>
+<!--
+Copyright:
+	Copyright (C) 2008 by each of the following organizations:
+	1.  AeroSpace and Defence Industries Associations of Europe - ASD.
+	2.  Ministries of Defence of the member countries of ASD.
+
+	Limitations of Liability:
+
+	1.  This material is provided "As Is" and neither ASD nor any person who has contributed to the creation, revision or maintenance of the material makes any representations or warranties, express or implied, including but not limited to, warranties of merchantability or fitness for any particular purpose.
+	2.  Neither ASD nor any person who has contributed to the creation, revision or maintenance of this material shall be liable for any direct, indirect, special or consequential damages or any other liability arising from any use of this material.
+	3.  Revisions to this document may occur after its issuance.  The user is responsible for determining if revisions to the material contained in this document have occurred and are applicable.
+-->
+	<head>
+		<title>XSD graphic</title>
+		<link rel="stylesheet" type="text/css"  href="xsd_graphic.css" media="screen">
+		<script language="Javascript">
+
+		graphicLevel = 2
+
+		function init()
+		{
+			document.getElementById("startElement").value = "table"
+			levelSet(graphicLevel);
+		}
+
+		function levelSet(level)
+		{
+			if (level < 1) {
+				level = 1;
+			}
+			if (level > 6) {
+				level = 6;
+			}
+			graphicLevel = level;
+			document.getElementById("graphicLevel").innerHTML = graphicLevel;
+		}
+
+		function changeLevel(changeValue)
+		{
+			levelSet(graphicLevel + changeValue);
+			displayXSDGraphic();
+		}
+
+		function loadXMLDoc(fname)
+		{
+			var xmlDoc;
+			if (document.implementation	&& document.implementation.createDocument)
+			{
+				xmlDoc=document.implementation.createDocument("","",null);
+			}
+			else
+			{
+				alert('Your browser cannot handle this script');
+			}
+			try
+			{
+				xmlDoc.async=false;
+				xmlDoc.load(fname);
+				return(xmlDoc);
+			}
+			catch(e)
+			{
+				try //Google Chrome
+				{
+					var xmlhttp = new window.XMLHttpRequest();
+					xmlhttp.open("GET",file,false);
+					xmlhttp.send(null);
+					xmlDoc = xmlhttp.responseXML.documentElement;
+					return(xmlDoc);
+				}
+				catch(e)
+				{
+					error=e.message;
+				}
+			}
+		}
+
+		function displayXSDGraphic()
+		{
+			var startElement = document.getElementById("startElement").value
+			// code for IE
+			if (window.ActiveXObject)
+			{
+				var xml = new ActiveXObject("Microsoft.XMLDOM");
+				var xsl = new ActiveXObject("MSXML2.FreeThreadedDOMDocument");
+				xml.load("xsd_graphic.xml");
+				xsl.load("xsd_graphic.xsl");
+				var processor = new ActiveXObject("Msxml2.XSLTemplate");
+				processor.stylesheet = xsl;
+				var objXSLTProc = processor.createProcessor();
+				objXSLTProc.input = xml;
+				objXSLTProc.addParameter("startElement", startElement);
+				objXSLTProc.addParameter("maxLevel", graphicLevel);
+				objXSLTProc.transform();
+				document.getElementById("XSDGraphic").innerHTML = objXSLTProc.output;			  }
+				// code for Mozilla, Firefox, Opera, etc.
+			else if (document.implementation && document.implementation.createDocument)
+			{
+				xml=loadXMLDoc("xsd_graphic.xml");
+				xsl=loadXMLDoc("xsd_graphic.xsl");
+				xsltProcessor=new XSLTProcessor();
+				xsltProcessor.importStylesheet(xsl);
+				xsltProcessor.setParameter(null, "startElement", startElement);
+				xsltProcessor.setParameter(null, "maxLevel", graphicLevel);
+				resultDocument = xsltProcessor.transformToFragment(xml,document);
+				document.getElementById("XSDGraphic").innerHTML = ""
+				document.getElementById("XSDGraphic").appendChild(resultDocument);
+			}
+		}
+ 		</script>
+	</head>
+
+	<body onload="init()">
+		<form action="javascript:displayXSDGraphic()">
+			<table class="composition_table">
+				<tr>
+					<td>Element name: <input id="startElement" type="text"></input></td>
+					<td><input type="button" id='display' value="Display" onClick="displayXSDGraphic()"></input></td>
+					<td style="padding-left:80px;">Levels:</td>
+					<td><input type="button" id='levelminus' value=" - " onClick="changeLevel(-1)"></input></td>
+					<td><div id="graphicLevel"></div></td>
+					<td><input type="button" id='levelplus' value=" + " onClick="changeLevel(1)"></input></td>
+				</tr>
+			</table>
+		</form>
+		<div id="XSDGraphic"></div>
+		<div>TEST</div>
+	</body>
+</html>

@@ -20,6 +20,7 @@ export default defineConfig({
     // plugins:[
     //     xml(),
     // ],
+    base: "S1000D_v5.0_web",
     build: {
         // minify: true,
         // lib: {

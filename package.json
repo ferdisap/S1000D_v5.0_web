@@ -20,5 +20,8 @@
     "csso": "^5.0.5",
     "glob": "^11.0.3",
     "rollup-plugin-xml": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.44.2"
   }
 }

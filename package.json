@@ -1,0 +1,24 @@
+{
+  "name": "S1000D V5.0 Dictionary",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "package": "vite build",
+    "build": "vite build && node minifier.js",
+    "preview": "vite preview",
+    "minify": "node minifier.js"
+  },
+  "devDependencies": {
+    "minify-xml": "^4.5.2",
+    "path": "^0.12.7",
+    "terser": "^5.43.1",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "csso": "^5.0.5",
+    "glob": "^11.0.3",
+    "rollup-plugin-xml": "^1.0.0"
+  }
+}

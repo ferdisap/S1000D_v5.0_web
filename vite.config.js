@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
-import path from 'node:path';
-import { globSync } from 'glob';
-import { fileURLToPath } from 'node:url';
-import xml from "rollup-plugin-xml";
+// import path from 'node:path';
+// import { globSync } from 'glob';
+// import { fileURLToPath } from 'node:url';
+// import xml from "rollup-plugin-xml";
 
 // var inp = Object.fromEntries(
 //                 globSync(['js/*']).map(file => [
@@ -15,13 +15,13 @@ import xml from "rollup-plugin-xml";
 // console.log(inp);
 
 export default defineConfig({
-    root: './',
-    publicDir: 'src',
+    // root: './',
+    // publicDir: 'src',
     // plugins:[
     //     xml(),
     // ],
     build: {
-        minify: true,
+        // minify: true,
         // lib: {
         //     entry: path.resolve(__dirname, 'js/main.js'),
         //     name: 'MyLib',

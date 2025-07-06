@@ -1,0 +1,16 @@
+<xs:schema xmlns="http://ltsc.ieee.org/xsd/LOM/unique" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ltsc.ieee.org/xsd/LOM/unique" elementFormDefault="qualified" version="IEEE LTSC LOM XML 1.0"><xs:annotation><xs:documentation>This work is licensed under the Creative Commons Attribution-ShareAlike
+       License.  To view a copy of this license, see the file license.txt,
+       visit http://creativecommons.org/licenses/by-sa/1.0 or send a letter to
+       Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.</xs:documentation><xs:documentation>This component schema provides attribute group declarations for metadata
+       elements to support loose validation of element uniqueness constraints.
+
+       NOTE: The absence of the enforcement of the uniqueness constraints does not 
+       relieve a particular LOM instance from satisfying the uniqueness constraints 
+       described in the LOMv1.0 base schema. Applications that require the use of 
+       the unique/loose.xsd component XSD have to enforce those uniqueness constraints 
+       by other means.</xs:documentation><xs:documentation>*****************************************************************************
+      **                           CHANGE HISTORY                                **
+      *****************************************************************************
+      ** 03/15/2004:  1)Updated annoation describing purpose and design of the   **
+      **                XSD.                                                     **
+      *****************************************************************************</xs:documentation></xs:annotation></xs:schema>

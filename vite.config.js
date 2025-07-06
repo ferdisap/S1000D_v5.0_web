@@ -16,7 +16,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
     // root: './',
-    // publicDir: 'src',
+    publicDir: 'src',
     // plugins:[
     //     xml(),
     // ],

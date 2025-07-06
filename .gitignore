@@ -12,6 +12,7 @@ node_modules
 dist/run.bat
 dist-ssr
 *.local
+push_ke_github.txt
 
 # Editor directories and files
 .vscode/*

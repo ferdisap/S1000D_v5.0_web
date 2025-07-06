@@ -15,7 +15,7 @@ Copyright:
 	<xsl:output method="html"/>
 	<xsl:template match="dataDictionary">
 		<html>
-			<link rel="STYLESHEET" type="text/css" href="../Xsl/Styles.css"/>
+			<link rel="STYLESHEET" type="text/css" href="../xsl/Styles.css"/>
 			<link rel="STYLESHEET" type="text/css" href="../xml_schema_viewer/xsd_graphic.css"/>
 			<script language="javascript" src="../js/functions.js"/>
 			<script language="javascript" src="../xml_schema_viewer/functions.js"/>

@@ -34,7 +34,7 @@ export default defineConfig({
         // },
         rollupOptions: {
             // input: "index.html",
-            input: "src/Index.html",
+            input: "src/index.html",
             // input: globSync(['Attributes/*']),
             // input: Object.fromEntries(
             //     globSync(['Attributes/*']).map(file => [

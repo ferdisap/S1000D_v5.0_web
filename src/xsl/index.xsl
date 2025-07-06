@@ -20,10 +20,10 @@ Copyright:
 			</head>
 				
 			<frameset rows="125,*" frameborder="YES" border="0" framespacing="0">				
-				<frame name="search"  src="./Files/frame/header.xml" scrolling="NO" marginheight="0" />
+				<frame name="search"  src="../frame/header.xml" scrolling="NO" marginheight="0" />
 				<frameset name="Viewer" cols="23%,*" frameborder="YES" resize="NO" border="1" framespacing="2">
-					<frame name="toc" src="./Files/frame/toc.xml" scrolling="AUTO" />
-					<frame name="content" src="./Files/frame/frontpage.xml" border="2" scrolling="AUTO" />
+					<frame name="toc" src="../frame/toc.xml" scrolling="AUTO" />
+					<frame name="content" src="../frame/frontpage.xml" border="2" scrolling="AUTO" />
 				</frameset>
 			</frameset>
 		</html>

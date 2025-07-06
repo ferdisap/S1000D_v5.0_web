@@ -16,7 +16,7 @@ Copyright:
 	
 	<xsl:template match="toc">
 		<html>
-			<link rel="STYLESHEET" type="text/css" href="../Xsl/Styles.css"/>
+			<link rel="STYLESHEET" type="text/css" href="../xsl/Styles.css"/>
 			<script language="javascript" src="../js/functions.js"/>
 			
 			<body>

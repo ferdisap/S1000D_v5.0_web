@@ -14,7 +14,20 @@ Copyright:
 
 <head>
 	<title>ASD S1000D - Data dictionary</title>
-	<link rel="stylesheet" href="./xsl/search.css">
+	<script>
+		let isProductionEnv = (() => top.location.hostname === 'localhost' ? false : true)();
+		let origin_suffix = "/S1000D_v5.0_web";
+		let origin = isProductionEnv ? top.location.origin + origin_suffix : top.location.origin;
+
+		const link = document.createElement('link');
+		link.setAttribute('rel', 'stylesheet');
+		link.href = origin + '/xsl/search.css';
+
+		console.log(document.body, document)
+		document.head.appendChild(link);
+	</script>
+
+	<!-- <link rel="stylesheet" href="./xsl/search.css"> -->
 </head>
 
 <!-- <frameset rows="70,*" frameborder="YES" border="0" framespacing="0">
@@ -25,25 +38,26 @@ Copyright:
 		</frameset>
 	</frameset> -->
 
-<div class="header-container">
-	<iframe name="search" src="frame/header.xml" scrolling="NO" marginheight="0"></iframe>
-	<div class="search-container">
-		<div class="search-form">
-			<input type="text" name="search_element" id="search_element" placeholder="search element" />
-			<button type="button" id="search_button">search</button>
+<body>
+	<div class="header-container">
+		<iframe name="search" src="/S1000D_v5.0_web/frame/header.xml" scrolling="NO" marginheight="0"></iframe>
+		<div class="search-container">
+			<div class="search-form">
+				<input type="text" name="search_element" id="search_element" placeholder="search element" />
+				<button type="button" id="search_button">search</button>
+			</div>
+			<div class="result-container" id="result-container"></div>
 		</div>
-		<div class="result-container" id="result-container"></div>
 	</div>
-</div>
 
-</div>
-<div class="viewer-container">
-	<iframe name="toc" src="frame/toc.xml" scrolling="AUTO"></iframe>
-	<iframe name="content" src="/frame/frontpage.xml" scrolling="AUTO"></iframe>
-</div>
+	</div>
+	<div class="viewer-container">
+		<iframe name="toc" src="/S1000D_v5.0_web/frame/toc.xml" scrolling="AUTO"></iframe>
+		<iframe name="content" src="/S1000D_v5.0_web/frame/frontpage.xml" scrolling="AUTO"></iframe>
+	</div>
 
-<script src="./js/search.js"></script>
-<!-- <script>
-</script> -->
+	<script src="/S1000D_v5.0_web/js/search.js"></script>
+</body>
+
 
 </html>

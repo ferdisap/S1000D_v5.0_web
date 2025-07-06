@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
 document.getElementById('search_element').onclick = show_result_display;
 document.getElementById('search_button').onclick = (event) => search(document.getElementById('search_element').value);
 
-fetch("./elements/registered_elements.json")
+fetch(origin + "/elements/registered_elements.json")
     .then(rsp => rsp.json())
     .then(rst => registered_element = rst);
 

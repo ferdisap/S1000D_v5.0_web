@@ -44,9 +44,9 @@ function showHideBlock2(blockId) {
 	
 	if(window.document.getElementById(blockId).style.display == "none") {
 		window.document.getElementById(blockId).style.display = "block";
-		window.document.getElementById(imgId).src = "../img/bluearrow_down.png";
-		//window.open(window.location.protocol+window.location.pathname+"#"+blockId, "content");
-		// window.open("file://"+windUrl+"#"+blockId, "content");
+		window.document.getElementById(imgId).src = origin + "/img/bluearrow_down.png";
+		//window.open(origin + window.location.protocol+window.location.pathname+"#"+blockId, "content");
+		// window.open(origin + "file://"+windUrl+"#"+blockId, "content");
 	}
 	else {
 		window.document.getElementById(blockId).style.display = "none";
@@ -65,13 +65,13 @@ function showHideBlock3(blockId, schemaContext) {
 	
 	if(window.document.getElementById(blockId).style.display == "none") {
 		window.document.getElementById(blockId).style.display = "block";
-		window.document.getElementById(imgId).src = "../img/bluearrow_down.png";
-		window.open(window.location.protocol+window.location.pathname+"#"+blockId, "content");
-		// window.open("file://"+windUrl+"#"+blockId, "content");
+		window.document.getElementById(imgId).src = origin + "/img/bluearrow_down.png";
+		// window.open(window.location.protocol+window.location.pathname+"#"+blockId, "content");
+		// window.open(origin + "file://"+windUrl+"#"+blockId, "content");
 	}
 	else {
 		window.document.getElementById(blockId).style.display = "none";
-		window[imgId].src = "../img/bluearrow_left.png";
+		window[imgId].src = origin + "/img/bluearrow_left.png";
 	}
 	
 	setGraphicContext(schemaContext);
@@ -97,16 +97,16 @@ function moveTo(blockId) {
 ------------------------------------------------------------------------------------------------ */
 function launchDD(type) {
 	if(type == "schema") {
-		window.open("/toc/tocSchema.xml", "toc");
-		window.open("/toc/tocSchemaOpen.xml", "content");
+		window.open(origin + "/toc/tocSchema.xml", "toc");
+		window.open(origin + "/toc/tocSchemaOpen.xml", "content");
 	}
 	if(type == "elem") {
-		window.open("/toc/tocElem.xml", "toc");
-		window.open("/toc/tocElemOpen.xml", "content");
+		window.open(origin + "/toc/tocElem.xml", "toc");
+		window.open(origin + "/toc/tocElemOpen.xml", "content");
 	}
 	if(type == "att") {
-		window.open("/toc/tocAtt.xml", "toc");
-		window.open("/toc/tocAttOpen.xml", "content");
+		window.open(origin + "/toc/tocAtt.xml", "toc");
+		window.open(origin + "/toc/tocAttOpen.xml", "content");
 	}
 }
 
@@ -117,10 +117,10 @@ function launchDD(type) {
 ------------------------------------------------------------------------------------------------ */
 function returnToList(type) {
 	if(type == "elem") {
-		window.open("/toc/tocElemOpen.xml", "content");
+		window.open(origin + "/toc/tocElemOpen.xml", "content");
 	}
 	else {
-		window.open("/toc/tocAttOpen.xml", "content");
+		window.open(origin + "/toc/tocAttOpen.xml", "content");
 	}
 }
 
@@ -133,7 +133,7 @@ function openDD(targetId) {
 	//window.open("./dd.xml#"+targetId, "content");
 	//window.parent["content"][targetId].style.display = "block";	
 	
-	window.open(targetId+".xml", "content");
+	window.open(origin + "/" + targetId+".xml", "content");
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -152,8 +152,8 @@ function load() {
 - Loading of home frame
 ------------------------------------------------------------------------------------------------ */
 function home() {
-	window.open("./toc.xml", "toc");
-	window.open("./frontpage.xml", "content");
+	window.open(origin + "/toc.xml", "toc");
+	window.open(origin + "/frontpage.xml", "content");
 }
 
 /* ------------------------------------------------------------------------------------------------
